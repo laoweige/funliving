@@ -40,6 +40,12 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
+    <bean id="apartmentRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.funliving.info.repository.ApartmentRepository"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+
     <!--<bean id="categoryRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
         <!--<property name="mapperInterface" value="com.chaoshike.shop.repository.CategoryRepository"/>-->
         <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
