@@ -5,6 +5,7 @@ import com.funliving.info.repository.entity.Apartment;
 import com.funliving.info.repository.entity.User;
 import com.funliving.info.resource.necessity.ApiTest;
 import com.funliving.info.resource.necessity.TestBeans;
+import com.funliving.info.resource.repr.ApartmentJson;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class ApartmentApiTest extends ApiTest {
                 .request(MediaType.APPLICATION_JSON_TYPE)
                 .get();
 //        Object result = response.getEntity();
-        Apartment result = response.readEntity(Apartment.class);
+        ApartmentJson result = response.readEntity(ApartmentJson.class);
 
 //        List<Object> result = response.(List.class);
         System.out.println(result);

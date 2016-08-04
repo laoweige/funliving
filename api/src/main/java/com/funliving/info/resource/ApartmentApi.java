@@ -2,7 +2,12 @@ package com.funliving.info.resource;
 
 import com.funliving.info.repository.ApartmentRepository;
 import com.funliving.info.repository.entity.Apartment;
+import com.funliving.info.repository.entity.Facility;
+import com.funliving.info.repository.entity.Room;
 import com.funliving.info.repository.entity.User;
+import com.funliving.info.resource.repr.ApartmentJson;
+import com.funliving.info.resource.repr.FacilityJson;
+import com.funliving.info.resource.repr.RoomJson;
 import com.funliving.info.resource.repr.UserJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,8 +30,17 @@ public class ApartmentApi {
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
     @Path("{id}")
-    public Apartment all(@PathParam("id") int id) {
+    public ApartmentJson getEntity(@PathParam("id") int id) {
         Apartment apartment =  apartmentRepository.getEntity(id);
-        return apartment;
+        ApartmentJson result = new ApartmentJson(apartment);
+        List<Room> rooms = apartmentRepository.getRooms(id);
+        for(Room room : rooms){
+            result.getRooms().add(new RoomJson(room));
+        }
+        List<Facility> facilities = apartmentRepository.getFacilities(id);
+        for(Facility facility : facilities){
+            result.getFacilities().add(new FacilityJson(facility));
+        }
+        return result;
     }
 }

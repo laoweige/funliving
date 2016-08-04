@@ -21,7 +21,7 @@ CREATE TABLE ApartmentRoom (
     images  VARCHAR(2000),
     rent FLOAT ,
     imprest FLOAT ,
-    count int,
+    total int,
     used int,
     name VARCHAR(50) NOT NULL,
     type int,
