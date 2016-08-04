@@ -1,12 +1,12 @@
 insert into apartment(name,images,address,serialNumber,rent,currency,city,
 coordinate,nation,description,createTime,lastTime) values(
-'Chapter Spitalfields','pic','9 Frying Pan Alley, Spitalfields½ÖÇø, Â×¶Ø, E1 7HS',
-'xx885',136.2,1,1,'1.3434,123.24',1,'ÃèÊö','2016-8-3','2016-8-3');
+'Chapter Spitalfields','pic','9 Frying Pan Alley, Spitalfieldsè¡—åŒº, ä¼¦æ•¦, E1 7HS',
+'xx885',136.2,1,1,'1.3434,123.24',1,'æè¿°1','2016-8-3','2016-8-3');
 
 insert into apartment(name,images,address,serialNumber,rent,currency,city,
 coordinate,nation,description,createTime,lastTime) values(
-'Chapter Spitalfields2','pic','10 Frying Pan Alley, Spitalfields½ÖÇø, Â×¶Ø, E1 7HS',
-'xx885',136.2,1,1,'1.3434,123.24',1,'ÃèÊö','2016-8-4','2016-8-4');
+'Chapter Spitalfields2','pic','9 Frying Pan Alley, Spitalfieldsè¡—åŒº, ä¼¦æ•¦, E1 7HS',
+'xx885',136.2,1,1,'1.3434,123.24',1,'æè¿°2','2016-8-4','2016-8-4');
 
 insert into ApartmentRoom(apartmentId,images,rent,imprest,total,used,
 name,type,toilet,description,createTime,lastTime)
@@ -29,12 +29,8 @@ insert into apartmentFacility(apartmentId,facility) values(1,6);
 insert into apartmentFacility(apartmentId,facility) values(1,7);
 insert into apartmentFacility(apartmentId,facility) values(1,8);
 
-insert into apartmentFacility(apartmentId,facility) values(1,11);
-insert into apartmentFacility(apartmentId,facility) values(2,2);
 insert into apartmentFacility(apartmentId,facility) values(2,3);
-insert into apartmentFacility(apartmentId,facility) values(2,4);
 insert into apartmentFacility(apartmentId,facility) values(2,5);
-insert into apartmentFacility(apartmentId,facility) values(2,6);
 insert into apartmentFacility(apartmentId,facility) values(2,7);
-insert into apartmentFacility(apartmentId,facility) values(2,8);
+insert into apartmentFacility(apartmentId,facility) values(2,9);
 

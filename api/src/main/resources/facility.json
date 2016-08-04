@@ -1,0 +1,50 @@
+{
+    "size": 9,
+    "facilities": {
+        "1": {
+            "name": "wifi1",
+            "logo": "1.png",
+            "facility": 1
+        },
+        "2": {
+            "name": "wifi2",
+            "logo": "2.png",
+            "facility": 2
+        },
+        "3": {
+            "name": "wifi3",
+            "logo": "3.png",
+            "facility": 3
+        },
+        "4": {
+            "name": "wifi4",
+            "logo": "4.png",
+            "facility": 4
+        },
+        "5": {
+            "name": "wifi5",
+            "logo": "5.png",
+            "facility": 5
+        },
+        "6": {
+            "name": "wifi6",
+            "logo": "6.png",
+            "facility": 6
+        },
+        "7": {
+            "name": "wifi7",
+            "logo": "7.png",
+            "facility": 7
+        },
+        "8": {
+            "name": "wifi8",
+            "logo": "8.png",
+            "facility": 8
+        },
+        "9": {
+            "name": "wifi9",
+            "logo": "9.png",
+            "facility": 9
+        }
+    }
+}

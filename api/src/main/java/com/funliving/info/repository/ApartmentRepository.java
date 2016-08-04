@@ -5,9 +5,6 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2016/8/2.
- */
 public interface ApartmentRepository {
 
     @Select("SELECT * FROM apartment where id = #{id}")
