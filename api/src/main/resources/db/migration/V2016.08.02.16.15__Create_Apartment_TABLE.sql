@@ -39,12 +39,3 @@ CREATE TABLE ApartmentFacility (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE ApartmentDistance(
-    id INT NOT NULL auto_increment,
-    apartmentId INT NOT NULL,
-    schoolId int,
-    walk int,
-    metro int,
-    drive int,
-    PRIMARY KEY(id)
-)

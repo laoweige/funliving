@@ -46,15 +46,15 @@
     </bean>
 
 
-    <!--<bean id="categoryRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-        <!--<property name="mapperInterface" value="com.chaoshike.shop.repository.CategoryRepository"/>-->
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
-    <!--</bean>-->
+    <bean id="cityRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.funliving.info.repository.CityRepository"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
 
-    <!--<bean id="channelRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-        <!--<property name="mapperInterface" value="com.chaoshike.shop.repository.ChannelRepository"/>-->
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
-    <!--</bean>-->
+    <bean id="collegeRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.funliving.info.repository.CollegeRepository"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
 
     <!--<bean id="productRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
         <!--<property name="mapperInterface" value="com.chaoshike.shop.repository.ProductRepository"/>-->
