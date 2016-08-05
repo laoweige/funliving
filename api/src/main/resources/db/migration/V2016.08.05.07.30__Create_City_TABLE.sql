@@ -3,6 +3,7 @@ CREATE TABLE Nation (
     name VARCHAR(200) NOT NULL,
     PRIMARY KEY(id)
 );
+
 insert into Nation(name) values('英国');
 
 CREATE TABLE City (
@@ -26,11 +27,11 @@ CREATE TABLE College (
     coordinate VARCHAR(50) NOT NULL,
     PRIMARY KEY(id)
 );
-insert into City(name,nationId,cityId,coordinate) values('BPP大学Croydon校区',1,1,'1.637,18.33');
-insert into City(name,nationId,cityId,coordinate) values('BPP大学商学院Kings Cross校区',1,1,'1.637,18.33');
-insert into City(name,nationId,cityId,coordinate) values('东伦敦大学',1,1,'1.637,18.33');
-insert into City(name,nationId,cityId,coordinate) values('伦敦国王学院St Thomas&#039;校区',1,1,'1.637,18.33');
-insert into City(name,nationId,cityId,coordinate) values('伦敦密德萨斯大学',1,1,'1.637,18.33');
+insert into College(name,nationId,cityId,coordinate) values('BPP大学Croydon校区',1,1,'1.637,18.33');
+insert into College(name,nationId,cityId,coordinate) values('BPP大学商学院Kings Cross校区',1,1,'1.637,18.33');
+insert into College(name,nationId,cityId,coordinate) values('东伦敦大学',1,1,'1.637,18.33');
+insert into College(name,nationId,cityId,coordinate) values('伦敦国王学院St Thomas&#039;校区',1,1,'1.637,18.33');
+insert into College(name,nationId,cityId,coordinate) values('伦敦密德萨斯大学',1,1,'1.637,18.33');
 
 CREATE TABLE ApartmentCollege(
     id INT NOT NULL auto_increment,

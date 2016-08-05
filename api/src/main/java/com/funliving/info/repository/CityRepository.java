@@ -10,7 +10,10 @@ public interface CityRepository {
     City getEntity(int id);
 
     @Select("SELECT * FROM city")
-    List<City> getList();
+    List<City> getAll();
+
+    @Select("SELECT * FROM city where nationId= #{nationId}")
+    List<City> getList(@Param("nationId") int nationId);
 
     @Insert("insert into city(name,nationId) values(#{id},#{name})")
     @Options(useGeneratedKeys = true, keyProperty = "id")

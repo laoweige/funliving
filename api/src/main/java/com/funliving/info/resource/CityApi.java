@@ -35,6 +35,14 @@ public class CityApi {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
+    @Path("all")
+    public List<City> getAll() {
+        List<City> cities = cityRepository.getAll();
+        return cities;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
     @Path("{id}/colleges")
     public List<CollegeJson> getColleges(@PathParam("id") int id) {
         List<College> colleges = collegeRepository.getList(id);

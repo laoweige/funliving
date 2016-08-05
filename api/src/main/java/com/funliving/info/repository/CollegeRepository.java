@@ -10,6 +10,9 @@ public interface CollegeRepository {
     @Select("SELECT * FROM college where id = #{id}")
     College getEntity(int id);
 
+    @Select("SELECT * FROM college")
+    List<College> getAll();
+
     @Select("SELECT * FROM college where cityId = #{cityId}")
     List<College> getList(@Param("cityId") int cityId);
 

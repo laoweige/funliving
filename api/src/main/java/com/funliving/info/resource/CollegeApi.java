@@ -35,13 +35,14 @@ public class CollegeApi {
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
     @Path("all")
-    public List<CollegeJson> getList(@PathParam("city") int city) {
+    public List<CollegeJson> getList() {
 
-        List<College> colleges = collegeRepository.getList(city);
+        List<College> colleges = collegeRepository.getAll();
         List<CollegeJson> result = new ArrayList<>();
         for(College college: colleges){
             result.add(new CollegeJson(college));
         }
         return result;
+        
     }
 }
