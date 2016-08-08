@@ -10,9 +10,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -31,8 +34,8 @@ public class ApartmentApiTest extends ApiTest {
 
     @Before
     public void setUp() throws Exception {
-        apartmentRepository = mock(ApartmentRepository.class);
-        TestBeans.replaceBean("apartmentRepository", apartmentRepository);
+//        apartmentRepository = mock(ApartmentRepository.class);
+//        TestBeans.replaceBean("apartmentRepository", apartmentRepository);
         super.setUp();
     }
 
@@ -51,5 +54,25 @@ public class ApartmentApiTest extends ApiTest {
 //        List<Object> result = response.(List.class);
         System.out.println(result);
         assertThat(response.getStatus(), is(200));
+    }
+
+    @Test
+    public void postCreate() throws Exception {
+        Form form = new Form().param("name", "公寓1测试")
+                .param("images", "images")
+                .param("address", "地址:1")
+                .param("rent", "111.2")
+                .param("city", "1")
+                .param("nation", "1")
+                .param("coordinate", "39.86,116.49")
+                .param("createTime", "2016-8-10 11:22:00");
+
+        Response response = client().target(getBaseUri()).path("apartment/create")
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .post(Entity.form(form));
+
+//        Response response = Response.created(null).entity(apartment).build();
+//        System.out.println(result);
+        assertThat(response.getStatus(), is(201));
     }
 }

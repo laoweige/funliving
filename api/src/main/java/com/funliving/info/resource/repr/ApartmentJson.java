@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.funliving.info.repository.entity.Apartment;
 import com.funliving.info.repository.entity.Facility;
+import org.apache.solr.client.solrj.beans.Field;
 
 public class ApartmentJson {
 
@@ -28,6 +29,7 @@ public class ApartmentJson {
 
 
 
+    @Field("Id")
     private int id;
 
     public int getId() {
@@ -38,6 +40,7 @@ public class ApartmentJson {
         this.id = id;
     }
 
+    @Field("Apartment")
     private String name;
 
     public String getName() {
@@ -48,6 +51,7 @@ public class ApartmentJson {
         this.name = name;
     }
 
+    @Field("Images")
     private String images;
 
     public String getImages() {
@@ -58,6 +62,7 @@ public class ApartmentJson {
         this.images = images;
     }
 
+    @Field("Address")
     private String address;
 
     public String getAddress() {
@@ -78,6 +83,7 @@ public class ApartmentJson {
         this.serialNumber = serialNumber;
     }
 
+    @Field("Rent")
     private double rent;
 
     public double getRent() {
@@ -98,6 +104,7 @@ public class ApartmentJson {
         this.currency = currency;
     }
 
+    @Field("City")
     private int city;
 
     public int getCity() {
@@ -108,6 +115,7 @@ public class ApartmentJson {
         this.city = city;
     }
 
+    @Field("Coordinate")
     private String coordinate;
 
     public String getCoordinate() {
@@ -118,6 +126,7 @@ public class ApartmentJson {
         this.coordinate = coordinate;
     }
 
+    @Field("Nation")
     private int nation;
 
     public int getNation() {

@@ -1,18 +1,35 @@
 package com.funliving.info.repository.entity;
 
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
  * Created by Administrator on 2016/8/2.
  */
+@XmlRootElement
 public class Apartment {
+
+    @FormParam("id")
     private int id;
+    @FormParam("name")
     private String name;
+    @FormParam("images")
     private String images;
+    @FormParam("address")
     private String address;
     private String serialNumber;
+    @FormParam("rent")
     private float rent;
     private int currency;
+    @FormParam("city")
+    private int city;
+    @FormParam("coordinate")
+    private String coordinate;
+    @FormParam("nation")
+    private int nation;
+    private String description;
+    private Date createTime=new Date();
 
     public int getId() {
         return id;
@@ -102,11 +119,7 @@ public class Apartment {
         this.description = description;
     }
 
-    private int city;
-    private String coordinate;
-    private int nation;
-    private String description;
-    private Date createTime=new Date();
+
 
     public Date getCreateTime() {
         return createTime;
