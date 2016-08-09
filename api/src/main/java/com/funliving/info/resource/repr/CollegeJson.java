@@ -2,6 +2,7 @@ package com.funliving.info.resource.repr;
 
 import java.util.Date;
 import com.funliving.info.repository.entity.College;
+import org.apache.solr.client.solrj.beans.Field;
 
 public class CollegeJson {
 
@@ -11,8 +12,28 @@ public class CollegeJson {
         this.id=entity.getId();
         this.name=entity.getName();
         this.cityId=entity.getCityId();
+        this.nation=entity.getNationId();
+        this.coordinate = entity.getCoordinate();
+    }
+    @Field("Coordinate")
+    private String coordinate;
+    public String getCoordinate() {
+        return coordinate;
+    }
+    public void setCoordinate(String coordinate) {
+        this.coordinate = coordinate;
     }
 
+    @Field("Nation")
+    private int nation;
+    public int getNation() {
+        return nation;
+    }
+    public void setNation(int nation) {
+        this.nation = nation;
+    }
+
+    @Field("Id")
     private int id;
     public int getId() {
         return id;
@@ -21,6 +42,7 @@ public class CollegeJson {
         this.id = id;
     }
 
+    @Field("College")
     private String name;
     public String getName() {
         return name;
@@ -29,6 +51,7 @@ public class CollegeJson {
         this.name = name;
     }
 
+    @Field("City")
     private int cityId;
     public int getCityId() {
         return cityId;

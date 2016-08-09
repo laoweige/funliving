@@ -29,7 +29,6 @@ public class UsersApiTest extends ApiTest {
 
     @Before
     public void setUp() throws Exception {
-
         userRepository = mock(UserRepository.class);
         TestBeans.replaceBean("userRepository", userRepository);
         super.setUp();

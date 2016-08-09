@@ -34,15 +34,15 @@ public class ApartmentApiTest extends ApiTest {
 
     @Before
     public void setUp() throws Exception {
-//        apartmentRepository = mock(ApartmentRepository.class);
-//        TestBeans.replaceBean("apartmentRepository", apartmentRepository);
+        apartmentRepository = mock(ApartmentRepository.class);
+        TestBeans.replaceBean("apartmentRepository", apartmentRepository);
         super.setUp();
     }
 
     @Test
     public void getEntity() throws Exception {
         Apartment apartment = new Apartment();
-        apartment.setId(1);
+        apartment.setId(4);
         apartment.setName("pure-city");
         when(apartmentRepository.getEntity(anyInt())).thenReturn(apartment);
         Response response = client().target(getBaseUri()).path("apartment/"+apartment.getId())

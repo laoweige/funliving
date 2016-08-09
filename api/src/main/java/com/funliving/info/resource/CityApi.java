@@ -1,18 +1,22 @@
 package com.funliving.info.resource;
 
+import com.funliving.info.common.SolrHelper;
 import com.funliving.info.repository.CityRepository;
 import com.funliving.info.repository.CollegeRepository;
+import com.funliving.info.repository.entity.Apartment;
 import com.funliving.info.repository.entity.City;
 import com.funliving.info.repository.entity.College;
+import com.funliving.info.resource.repr.ApartmentJson;
 import com.funliving.info.resource.repr.CollegeJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,4 +56,22 @@ public class CityApi {
         }
         return result;
     }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("create")
+    public Response create(@FormParam("name") String name,@FormParam("nation") int nation)
+            throws URISyntaxException, IOException {
+        City city = new City();
+        city.setName(name);
+        city.setNationId(nation);
+        int size = cityRepository.create(city);
+        if(size>0){
+            SolrHelper.add(city, "172.17.1.187:9080/solr/", "city");
+        }
+        System.out.println(size);
+        return Response.created(new URI("")).build();
+    }
+
 }

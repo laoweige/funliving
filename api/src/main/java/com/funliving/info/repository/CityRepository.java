@@ -15,7 +15,7 @@ public interface CityRepository {
     @Select("SELECT * FROM city where nationId= #{nationId}")
     List<City> getList(@Param("nationId") int nationId);
 
-    @Insert("insert into city(name,nationId) values(#{id},#{name})")
+    @Insert("insert into city(name,nationId) values(#{name},#{nationId})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int create(City city);
 

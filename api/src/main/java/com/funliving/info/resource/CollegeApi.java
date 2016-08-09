@@ -1,17 +1,20 @@
 package com.funliving.info.resource;
 
+import com.funliving.info.common.SolrHelper;
 import com.funliving.info.repository.CollegeRepository;
+import com.funliving.info.repository.entity.City;
 import com.funliving.info.repository.entity.College;
 import com.funliving.info.resource.repr.ApartmentJson;
 import com.funliving.info.resource.repr.CollegeJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,5 +47,21 @@ public class CollegeApi {
         }
         return result;
         
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("create")
+    public Response create(@BeanParam College college)
+            throws URISyntaxException, IOException {
+
+        int size = collegeRepository.create(college);
+        if (size > 0) {
+            CollegeJson doc = new CollegeJson(college);
+            SolrHelper.add(doc, "172.17.1.187:9080/solr/", "college");
+        }
+        System.out.println(size);
+        return Response.created(new URI("")).build();
     }
 }

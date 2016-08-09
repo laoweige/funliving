@@ -17,7 +17,7 @@ public interface CollegeRepository {
     List<College> getList(@Param("cityId") int cityId);
 
     @Insert("insert into college(name,cityId,nationId,coordinate) " +
-            "values(#{id},#{name},#{cityId},#{nationId})")
+            "values(#{name},#{cityId},#{nationId},#{coordinate})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int create(College college);
 
