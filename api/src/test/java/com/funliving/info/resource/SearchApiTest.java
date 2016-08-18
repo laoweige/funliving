@@ -2,6 +2,7 @@ package com.funliving.info.resource;
 
 import com.funliving.info.resource.necessity.ApiTest;
 import com.funliving.info.resource.repr.SearchHotJson;
+import com.funliving.info.resource.repr.SearchListJson;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.junit.Test;
@@ -46,7 +47,7 @@ public class SearchApiTest extends ApiTest {
                 .get();
 
 //        Response response = Response.created(null).entity(apartment).build();
-        SolrDocumentList result = response.readEntity(SolrDocumentList.class);
+        SearchListJson result = response.readEntity(SearchListJson.class);
 
 //        for(SolrDocument doc:list){
 //            System.out.println(doc.get("Id"));

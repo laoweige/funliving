@@ -69,7 +69,7 @@ public class SearchApi {
                 saj.setName(String.valueOf(doc.get("Apartment").toString()));
                 saj.setAddress(String.valueOf(doc.get("Address").toString()));
                 saj.setImages(String.valueOf(doc.get("Images").toString()));
-                saj.setRent(Integer.valueOf(doc.get("Rent").toString()));
+                saj.setRent((int)Double.parseDouble(doc.get("Rent").toString()));
                 saj.setRank(8);
                 result.getApartments().add(saj);
             }
