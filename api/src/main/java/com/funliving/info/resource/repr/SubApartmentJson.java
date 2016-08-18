@@ -58,4 +58,16 @@ public class SubApartmentJson {
     public void setRent(int rent) {
         this.rent = rent;
     }
+
+    @Override
+    public String toString() {
+        return "SubApartmentJson{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", images='" + images + '\'' +
+                ", address='" + address + '\'' +
+                ", rent=" + rent +
+                ", rank=" + rank +
+                '}';
+    }
 }

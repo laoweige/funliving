@@ -59,4 +59,15 @@ public class CollegeJson {
     public void setCityId(int cityId) {
         this.cityId = cityId;
     }
+
+    @Override
+    public String toString() {
+        return "CollegeJson{" +
+                "coordinate='" + coordinate + '\'' +
+                ", nation=" + nation +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", cityId=" + cityId +
+                '}';
+    }
 }

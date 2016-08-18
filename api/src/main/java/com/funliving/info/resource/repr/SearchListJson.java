@@ -51,4 +51,15 @@ public class SearchListJson {
     public void setCity(int city) {
         this.city = city;
     }
+
+    @Override
+    public String toString() {
+        return "SearchListJson{" +
+                "apartments=" + apartments +
+                ", colleges=" + colleges +
+                ", total=" + total +
+                ", Address='" + Address + '\'' +
+                ", city=" + city +
+                '}';
+    }
 }
