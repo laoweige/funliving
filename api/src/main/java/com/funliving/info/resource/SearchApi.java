@@ -1,6 +1,7 @@
 package com.funliving.info.resource;
 
 import com.funliving.info.common.SolrHelper;
+import com.funliving.info.repository.CityRepository;
 import com.funliving.info.repository.CollegeRepository;
 import com.funliving.info.repository.entity.City;
 import com.funliving.info.repository.entity.College;
@@ -23,6 +24,8 @@ public class SearchApi {
 
     @Autowired
     private CollegeRepository collegeRepository;
+    @Autowired
+    private CityRepository cityRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
@@ -37,19 +40,24 @@ public class SearchApi {
         List<String> queries = new ArrayList<>();
         if(city!=0){
             queries.add(String.format("City:%s", city));
-        }
-        if(rent!=null && !rent.equals("") && rent.contains(",") && !rent.endsWith(",")){
-            String[] rents = rent.split(",");
-            queries.add(String.format("Rent:[%s TO %s]", rents[0],rents[1]));
-        }
-        if(college!=0){
             List<College> collegeList = collegeRepository.getList(city);
             result.setColleges(new ArrayList<CollegeJson>());
             for(College c:collegeList){
                 CollegeJson cj = new CollegeJson(c);
                 result.getColleges().add(cj);
             }
+        }
+        if(rent!=null && !rent.equals("") && rent.contains(",") && !rent.endsWith(",")){
+            String[] rents = rent.split(",");
+            queries.add(String.format("Rent:[%s TO %s]", rents[0],rents[1]));
+        }
+        if(college!=0){
+            College currentCollege = collegeRepository.getEntity(college);
+            result.setAddress(currentCollege.getName());
             //设置距离排序
+        }else{
+            City currentCity = cityRepository.getEntity(city);
+            result.setAddress(currentCity.getName());
         }
 
         String queryString = "";
@@ -75,7 +83,7 @@ public class SearchApi {
             }
             result.setTotal(apartments.getNumFound());
             result.setCity(city);
-            result.setAddress("city or college");
+//            result.setAddress("city or college");
             return result;
         }else {
             throw new WebApplicationException("missing query parameters");

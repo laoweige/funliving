@@ -54,6 +54,7 @@ public class SearchApiTest extends ApiTest {
 //            System.out.println(doc.get("Apartment"));
 //        }
         System.out.println(result);
+        assertTrue(result.getColleges().size()>1);
         assertThat(response.getStatus(), is(200));
 
     }
