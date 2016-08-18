@@ -37,12 +37,12 @@ public class ApartmentRepositoryTest {
         apartment.setCreateTime(new Date());
         apartment.setLastTime(new Date());
         apartment.setImages("https://static.student-cdn.cn/media/cache/light_gallery_main_desktop/mstr/country/united-kingdom/city/london/property/prodigy-living-spitalfields/image-o83j06.jpeg");
-        int count= apartmentRepository.create(apartment);
+        int count = apartmentRepository.create(apartment);
         assertTrue(count > 0);
         System.out.println(apartment.getId());
         Apartment entity = apartmentRepository.getEntity(apartment.getId());
         System.out.println(entity);
-        assertThat(entity.getName(),is("Chapter Spitalfields22"));
+        assertThat(entity.getName(), is("Chapter Spitalfields22"));
     }
 
     @Test
@@ -58,8 +58,17 @@ public class ApartmentRepositoryTest {
         apartment.setCreateTime(new Date());
         apartment.setLastTime(new Date());
         apartment.setImages("https://static.student-cdn.cn/media/cache/light_gallery_main_desktop/mstr/country/united-kingdom/city/london/property/prodigy-living-spitalfields/image-o83j06.jpeg");
-        apartment.setId(1);
-        int count = apartmentRepository.update(apartment);
-//        assertTrue(count > 0);
+        //apartment.setId(1);
+        int count = apartmentRepository.create(apartment);
+        assertTrue(count > 0);
+        System.out.println(apartment.getId());
+        Apartment entity = apartmentRepository.getEntity(apartment.getId());
+        System.out.println(entity);
+        assertThat(entity.getName(), is("Chapter Spitalfields22"));
+        apartment.setName("Chapter Spitalfields33");
+        int updateCount = apartmentRepository.update(apartment);
+        assertTrue(updateCount > 0);
+        entity = apartmentRepository.getEntity(apartment.getId());
+        assertThat(entity.getName(), is("Chapter Spitalfields33"));
     }
 }

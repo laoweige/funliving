@@ -1,13 +1,13 @@
 package com.funliving.info.resource;
 
 import com.funliving.info.common.SolrHelper;
+import com.funliving.info.repository.CollegeRepository;
 import com.funliving.info.repository.entity.City;
-import com.funliving.info.resource.repr.ApartmentJson;
-import com.funliving.info.resource.repr.CollegeJson;
-import com.funliving.info.resource.repr.HotJson;
-import com.funliving.info.resource.repr.SearchHotJson;
+import com.funliving.info.repository.entity.College;
+import com.funliving.info.resource.repr.*;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
@@ -21,14 +21,18 @@ import java.util.Map;
 @Path("/search")
 public class SearchApi {
 
+    @Autowired
+    private CollegeRepository collegeRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
-    public SolrDocumentList apartments(@DefaultValue("1") @QueryParam("page") int page,
+    public SearchListJson apartments(@DefaultValue("1") @QueryParam("page") int page,
                                        @DefaultValue("10") @QueryParam("pageSize") int pageSize,
                                        @DefaultValue("1") @QueryParam("city") int city,
                                        @QueryParam("college") int college,
                                        @QueryParam("rent") String rent) {
+
+        SearchListJson result = new SearchListJson();
 
         List<String> queries = new ArrayList<>();
         if(city!=0){
@@ -39,6 +43,12 @@ public class SearchApi {
             queries.add(String.format("Rent:[%s TO %s]", rents[0],rents[1]));
         }
         if(college!=0){
+            List<College> collegeList = collegeRepository.getList(city);
+            result.setColleges(new ArrayList<CollegeJson>());
+            for(College c:collegeList){
+                CollegeJson cj = new CollegeJson(c);
+                result.getColleges().add(cj);
+            }
             //设置距离排序
         }
 
@@ -48,13 +58,25 @@ public class SearchApi {
                 queryString+=" AND ";
             queryString+=queries.get(i);
         }
+
         if(!queryString.equals("")) {
             int start = (page-1)*pageSize;
             SolrDocumentList apartments = SolrHelper.search(queryString,start , pageSize, "*", "172.17.1.187:9080/solr/", "apartment");
-//            for (SolrDocument doc : apartments) {
-//
-//            }
-            return apartments;
+            result.setApartments(new ArrayList<SubApartmentJson>());
+            for (SolrDocument doc : apartments) {
+                SubApartmentJson saj=new SubApartmentJson();
+                saj.setId(Integer.valueOf(doc.get("Id").toString()));
+                saj.setName(String.valueOf(doc.get("Apartment").toString()));
+                saj.setAddress(String.valueOf(doc.get("Address").toString()));
+                saj.setImages(String.valueOf(doc.get("Images").toString()));
+                saj.setRent(Integer.valueOf(doc.get("Rent").toString()));
+                saj.setRank(8);
+                result.getApartments().add(saj);
+            }
+            result.setTotal(apartments.getNumFound());
+            result.setCity(city);
+            result.setAddress("city or college");
+            return result;
         }else {
             throw new WebApplicationException("missing query parameters");
         }
