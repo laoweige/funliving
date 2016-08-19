@@ -2,12 +2,10 @@ package com.funliving.info.resource;
 
 import com.funliving.info.common.SolrHelper;
 import com.funliving.info.repository.ApartmentRepository;
-import com.funliving.info.repository.entity.Apartment;
-import com.funliving.info.repository.entity.Facility;
-import com.funliving.info.repository.entity.Room;
-import com.funliving.info.resource.repr.ApartmentJson;
-import com.funliving.info.resource.repr.FacilityJson;
-import com.funliving.info.resource.repr.RoomJson;
+import com.funliving.info.repository.IntroduceRepository;
+import com.funliving.info.repository.PictureRepository;
+import com.funliving.info.repository.entity.*;
+import com.funliving.info.resource.repr.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +23,10 @@ public class ApartmentApi {
 
     @Autowired
     ApartmentRepository apartmentRepository;
+    @Autowired
+    private PictureRepository pictureRepository;
+    @Autowired
+    private IntroduceRepository introduceRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
@@ -39,6 +41,14 @@ public class ApartmentApi {
         List<Facility> facilities = apartmentRepository.getFacilities(id);
         for(Facility facility : facilities){
             result.getFacilities().add(new FacilityJson(facility));
+        }
+        List<Picture> pictures = pictureRepository.getList(1, id);
+        for(Picture picture:pictures){
+            result.getPictures().add(new PictureJson(picture));
+        }
+        List<Introduce> introduces = introduceRepository.getList(1,id);
+        for(Introduce introduce:introduces){
+            result.getIntroduces().add(new IntroduceJson(introduce));
         }
         return result;
     }

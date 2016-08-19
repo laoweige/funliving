@@ -1,12 +1,10 @@
 package com.funliving.info.resource.repr;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import com.funliving.info.repository.entity.Apartment;
-import com.funliving.info.repository.entity.Facility;
 import org.apache.solr.client.solrj.beans.Field;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ApartmentJson {
 
@@ -164,5 +162,25 @@ public class ApartmentJson {
 
     public void setFacilities(List<FacilityJson> facilities) {
         this.facilities = facilities;
+    }
+
+    private List<PictureJson> pictures=new ArrayList<>();
+
+    public List<PictureJson> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<PictureJson> pictures) {
+        this.pictures = pictures;
+    }
+
+    private List<IntroduceJson> introduces=new ArrayList<>();
+
+    public List<IntroduceJson> getIntroduces() {
+        return introduces;
+    }
+
+    public void setIntroduces(List<IntroduceJson> introduces) {
+        this.introduces = introduces;
     }
 }
