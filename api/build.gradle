@@ -37,11 +37,11 @@ ext {
         adDbUrl = "jdbc:sqlserver://172.17.0.34:1433;DatabaseName="
         adDbUsername = 'adsa'
         adDbPassword = '123456'
-    } else if (profile.equals("mac")) {
-        adDbName = 'ad_mac'
-        adDbUrl = "jdbc:sqlserver://172.17.0.34:1433;DatabaseName="
-        adDbUsername = 'adsa'
-        adDbPassword = '123456'
+    } else if (profile.equals("test")) {
+        adDbName = 'chaoshikedb'
+        adDbUrl = "jdbc:mysql://172.17.1.188:3306/"
+        adDbUsername = 'root'
+        adDbPassword = 'wzg123'
     } else {
         adDbName = 'chaoshikedb'
 //        adDbUrl = "jdbc:mysql://127.0.0.1:3306/"
