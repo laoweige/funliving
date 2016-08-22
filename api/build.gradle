@@ -38,8 +38,8 @@ ext {
         adDbUsername = 'adsa'
         adDbPassword = '123456'
     } else if (profile.equals("test")) {
-        adDbName = 'chaoshikedb'
-        adDbUrl = "jdbc:mysql://172.17.1.188:3306/"
+        adDbName = 'fanlivingdb'
+        adDbUrl = "jdbc:mysql://localhost:3306/"
         adDbUsername = 'root'
         adDbPassword = 'wzg123'
     } else {
