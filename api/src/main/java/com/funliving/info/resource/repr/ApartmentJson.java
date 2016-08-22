@@ -23,9 +23,18 @@ public class ApartmentJson {
         this.coordinate=entity.getCoordinate();
         this.nation=entity.getNation();
         this.description=entity.getDescription();
+        this.rank = entity.getRank();
     }
 
+    private int rank;
 
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
 
     @Field("Id")
     private int id;
@@ -82,13 +91,13 @@ public class ApartmentJson {
     }
 
     @Field("Rent")
-    private double rent;
+    private int rent;
 
-    public double getRent() {
+    public int getRent() {
         return rent;
     }
 
-    public void setRent(double rent) {
+    public void setRent(int rent) {
         this.rent = rent;
     }
 

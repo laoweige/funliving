@@ -69,22 +69,22 @@ public class RoomJson {
     /**
      *
      */
-    private double rent;
-    public double getRent() {
+    private int rent;
+    public int getRent() {
         return rent;
     }
-    public void setRent(double rent) {
+    public void setRent(int rent) {
         this.rent = rent;
     }
 
     /**
      *
      */
-    private double imprest;
-    public double getImprest() {
+    private int imprest;
+    public int getImprest() {
         return imprest;
     }
-    public void setImprest(double imprest) {
+    public void setImprest(int imprest) {
         this.imprest = imprest;
     }
 

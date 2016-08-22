@@ -33,7 +33,8 @@ public class ApartmentRepositoryTest {
         apartment.setNation(1);
         apartment.setAddress("9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS");
         apartment.setCurrency(1);
-        apartment.setRent(264.0f);
+        apartment.setRent(8);
+        apartment.setRent(370);
         apartment.setCreateTime(new Date());
         apartment.setLastTime(new Date());
         apartment.setImages("https://static.student-cdn.cn/media/cache/light_gallery_main_desktop/mstr/country/united-kingdom/city/london/property/prodigy-living-spitalfields/image-o83j06.jpeg");
@@ -54,7 +55,8 @@ public class ApartmentRepositoryTest {
         apartment.setNation(1);
         apartment.setAddress("9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS");
         apartment.setCurrency(1);
-        apartment.setRent(264.0f);
+        apartment.setRent(264);
+        apartment.setRank(8);
         apartment.setCreateTime(new Date());
         apartment.setLastTime(new Date());
         apartment.setImages("https://static.student-cdn.cn/media/cache/light_gallery_main_desktop/mstr/country/united-kingdom/city/london/property/prodigy-living-spitalfields/image-o83j06.jpeg");

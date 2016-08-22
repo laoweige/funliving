@@ -60,8 +60,9 @@ public class ApartmentApiTest extends ApiTest {
     public void postCreate() throws Exception {
         Form form = new Form().param("name", "公寓1测试")
                 .param("images", "images")
+                .param("rank","8")
                 .param("address", "地址:1")
-                .param("rent", "111.2")
+                .param("rent", "111")
                 .param("city", "1")
                 .param("nation", "1")
                 .param("coordinate", "39.86,116.49")

@@ -41,19 +41,19 @@ public class Room {
         this.toilet = toilet;
     }
 
-    public float getRent() {
+    public int getRent() {
         return rent;
     }
 
-    public void setRent(float rent) {
+    public void setRent(int rent) {
         this.rent = rent;
     }
 
-    public float getImprest() {
+    public int getImprest() {
         return imprest;
     }
 
-    public void setImprest(float imprest) {
+    public void setImprest(int imprest) {
         this.imprest = imprest;
     }
 
@@ -115,8 +115,8 @@ public class Room {
 
     private int type;
     private int toilet;
-    private float rent;
-    private float imprest;
+    private int rent;
+    private int imprest;
     private int apartmentId;
     private String images;
     private String description;

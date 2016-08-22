@@ -10,15 +10,15 @@ public interface ApartmentRepository {
     @Select("SELECT * FROM apartment where id = #{id}")
     Apartment getEntity(int id);
 
-    @Insert("insert into apartment(name,images,address," +
+    @Insert("insert into apartment(name,rank,images,address," +
             "serialNumber,rent,currency,city,coordinate,nation," +
-            "description,createTime,lastTime) values(#{name},#{images},#{address}," +
+            "description,createTime,lastTime) values(#{name},#{rank},#{images},#{address}," +
             "#{serialNumber},#{rent},#{currency},#{city},#{coordinate},#{nation}," +
             "#{description},#{createTime},#{lastTime})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int create(Apartment apartment);
 
-    @Update("update apartment set name=#{name},images=#{images},address=#{address}," +
+    @Update("update apartment set name=#{name},rank=#{rank},images=#{images},address=#{address}," +
             "serialNumber=#{serialNumber},rent=#{rent},currency=#{currency}," +
             "city=#{city},coordinate=#{coordinate},nation=#{nation}," +
             "description=#{description},createTime=#{createTime}," +

@@ -14,13 +14,15 @@ public class Apartment {
     private int id;
     @FormParam("name")
     private String name;
+    @FormParam("rank")
+    private int rank;
     @FormParam("images")
     private String images;
     @FormParam("address")
     private String address;
     private String serialNumber;
     @FormParam("rent")
-    private float rent;
+    private int rent;
     private int currency;
     @FormParam("city")
     private int city;
@@ -47,6 +49,14 @@ public class Apartment {
         this.name = name;
     }
 
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
     public String getImages() {
         return images;
     }
@@ -71,11 +81,11 @@ public class Apartment {
         this.serialNumber = serialNumber;
     }
 
-    public float getRent() {
+    public int getRent() {
         return rent;
     }
 
-    public void setRent(float rent) {
+    public void setRent(int rent) {
         this.rent = rent;
     }
 
