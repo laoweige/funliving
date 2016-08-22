@@ -11,6 +11,33 @@ public class SearchListJson {
     private long total;
     private String Address;
     private int city;
+    private int page;
+    private int endPage;
+    private int pageSize;
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getEndPage() {
+        return endPage;
+    }
+
+    public void setEndPage(int endPage) {
+        this.endPage = endPage;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
 
     public List<SubApartmentJson> getApartments() {
         return apartments;

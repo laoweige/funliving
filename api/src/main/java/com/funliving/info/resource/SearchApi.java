@@ -14,9 +14,7 @@ import org.springframework.stereotype.Component;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Component
 @Path("/search")
@@ -83,6 +81,14 @@ public class SearchApi {
             }
             result.setTotal(apartments.getNumFound());
             result.setCity(city);
+            result.setPage(page);
+            result.setPageSize(pageSize);
+            if(result.getTotal()%pageSize == 0){
+                result.setEndPage((int)(result.getTotal()/pageSize));
+            }else{
+                result.setEndPage((int)(result.getTotal()/pageSize) + 1);
+            }
+
 //            result.setAddress("city or college");
             return result;
         }else {
