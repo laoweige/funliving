@@ -9,6 +9,7 @@ import com.funliving.info.resource.repr.*;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
@@ -19,6 +20,8 @@ import java.util.List;
 @Component
 @Path("/search")
 public class SearchApi {
+    @Autowired
+    private SolrHelper solrHelper;
 
     @Autowired
     private CollegeRepository collegeRepository;
@@ -67,7 +70,7 @@ public class SearchApi {
 
         if(!queryString.equals("")) {
             int start = (page-1)*pageSize;
-            SolrDocumentList apartments = SolrHelper.search(queryString,start , pageSize, "*", "172.17.1.187:9080/solr/", "apartment");
+            SolrDocumentList apartments = solrHelper.search(queryString,start , pageSize, "*", "apartment");
             result.setApartments(new ArrayList<SubApartmentJson>());
             for (SolrDocument doc : apartments) {
                 SubApartmentJson saj=new SubApartmentJson();
@@ -105,9 +108,9 @@ public class SearchApi {
         }
         System.out.println("SolrDocumentList search(@QueryParam(\"keyword\") String keyword)");
         System.out.println("keyword="+keyword);
-        SolrDocumentList apartments = SolrHelper.search(String.format("Apartment:*%s*", keyword), 0, 10, "*","172.17.1.187:9080/solr/","apartment");
-        SolrDocumentList cities = SolrHelper.search(String.format("CityName:*%s*", keyword), 0, 10, "*","172.17.1.187:9080/solr/","city");
-        SolrDocumentList colleges = SolrHelper.search(String.format("College:*%s*", keyword), 0, 10, "*","172.17.1.187:9080/solr/","college");
+        SolrDocumentList apartments = solrHelper.search(String.format("Apartment:*%s*", keyword), 0, 10, "*","apartment");
+        SolrDocumentList cities = solrHelper.search(String.format("CityName:*%s*", keyword), 0, 10, "*","city");
+        SolrDocumentList colleges = solrHelper.search(String.format("College:*%s*", keyword), 0, 10, "*","college");
         SearchHotJson result = new SearchHotJson();
         for(SolrDocument doc:apartments){
             HotJson apartment = new HotJson(doc.get("Id"),doc.get("Apartment"),0);

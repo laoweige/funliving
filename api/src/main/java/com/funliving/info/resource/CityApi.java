@@ -23,6 +23,9 @@ import java.util.List;
 @Component
 @Path("/city")
 public class CityApi {
+    @Autowired
+    private SolrHelper solrHelper;
+
 
     @Autowired
     private CityRepository cityRepository;
@@ -68,7 +71,7 @@ public class CityApi {
         city.setNationId(nation);
         int size = cityRepository.create(city);
         if(size>0){
-            SolrHelper.add(city, "172.17.1.187:9080/solr/", "city");
+            solrHelper.add(city, "city");
         }
         System.out.println(size);
         return Response.created(new URI("")).build();

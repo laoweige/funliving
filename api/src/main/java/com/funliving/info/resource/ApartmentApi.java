@@ -7,6 +7,7 @@ import com.funliving.info.repository.PictureRepository;
 import com.funliving.info.repository.entity.*;
 import com.funliving.info.resource.repr.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
@@ -20,6 +21,10 @@ import java.util.List;
 @Component
 @Path("/apartment")
 public class ApartmentApi {
+
+
+    @Autowired
+    private SolrHelper solrHelper;
 
     @Autowired
     ApartmentRepository apartmentRepository;
@@ -63,7 +68,7 @@ public class ApartmentApi {
         int size = apartmentRepository.create(apartment);
         if(size>0){
             ApartmentJson apartmentJson = new ApartmentJson(apartment);
-            SolrHelper.add(apartmentJson,"172.17.1.187:9080/solr/","apartment");
+            solrHelper.add(apartmentJson,"apartment");
         }
         System.out.println(size);
         return Response.created(new URI("")).build();

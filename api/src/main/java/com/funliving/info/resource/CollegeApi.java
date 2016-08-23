@@ -24,6 +24,9 @@ public class CollegeApi {
     @Autowired
     private CollegeRepository collegeRepository;
 
+    @Autowired
+    private SolrHelper solrHelper;
+
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
     @Path("{id}")
@@ -59,7 +62,7 @@ public class CollegeApi {
         int size = collegeRepository.create(college);
         if (size > 0) {
             CollegeJson doc = new CollegeJson(college);
-            SolrHelper.add(doc, "172.17.1.187:9080/solr/", "college");
+            solrHelper.add(doc,"college");
         }
         System.out.println(size);
         return Response.created(new URI("")).build();
