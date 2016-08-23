@@ -135,29 +135,21 @@ public class SearchApi {
             solrHelper.clear("apartment");
             solrHelper.clear("college");
             solrHelper.clear("city");
-            ApartmentJson apartmentJson = new ApartmentJson();
-            apartmentJson.setId(1);
-            apartmentJson.setName("Chapter Spitalfields");
-            apartmentJson.setRank(9);
-            apartmentJson.setRent(321);
-            apartmentJson.setNation(1);
-            apartmentJson.setCity(1);
-            apartmentJson.setCoordinate("1.3434,123.24");
-            apartmentJson.setAddress("9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS");
-            apartmentJson.setImages("https://static.student-cdn.com/media/cache/light_gallery_main_desktop/mstr/country/united-kingdom/city/london/property/nido-west-hampstead/image-o6i642.jpeg");
-            solrHelper.add(apartmentJson, "apartment");
-            apartmentJson.setId(2);
-            apartmentJson.setName("Chapter Spitalfields2");
-            solrHelper.add(apartmentJson, "apartment");
-            apartmentJson.setId(3);
-            apartmentJson.setName("Chapter Spitalfields3");
-            solrHelper.add(apartmentJson, "apartment");
-            apartmentJson.setId(4);
-            apartmentJson.setName("Chapter Spitalfields4");
-            solrHelper.add(apartmentJson, "apartment");
-            apartmentJson.setId(5);
-            apartmentJson.setName("Chapter Spitalfields5");
-            solrHelper.add(apartmentJson, "apartment");
+            for(int i=1;i<180;i++) {
+
+                ApartmentJson apartmentJson = new ApartmentJson();
+                apartmentJson.setId(i);
+                apartmentJson.setName("Chapter Spitalfields "+i);
+                apartmentJson.setRank(180%10);
+                apartmentJson.setRent(321);
+                apartmentJson.setNation(1);
+                apartmentJson.setCity(1);
+                apartmentJson.setCoordinate("1.3434,123.24");
+                apartmentJson.setAddress("9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS");
+                apartmentJson.setImages("https://static.student-cdn.com/media/cache/light_gallery_main_desktop/mstr/country/united-kingdom/city/london/property/nido-west-hampstead/image-o6i642.jpeg");
+                solrHelper.add(apartmentJson, "apartment");
+            }
+
 
 
             CollegeJson collegeJson = new CollegeJson();
