@@ -126,4 +126,74 @@ public class SearchApi {
         }
         return result;
     }
+
+    @GET
+    @Path("init")
+    @Produces(MediaType.TEXT_PLAIN)
+    public int init() {
+        try {
+            solrHelper.clear("apartment");
+            solrHelper.clear("college");
+            solrHelper.clear("city");
+            ApartmentJson apartmentJson = new ApartmentJson();
+            apartmentJson.setId(1);
+            apartmentJson.setName("Chapter Spitalfields");
+            apartmentJson.setRank(9);
+            apartmentJson.setRent(321);
+            apartmentJson.setNation(1);
+            apartmentJson.setCity(1);
+            apartmentJson.setCoordinate("1.3434,123.24");
+            apartmentJson.setAddress("9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS");
+            apartmentJson.setImages("https://static.student-cdn.com/media/cache/light_gallery_main_desktop/mstr/country/united-kingdom/city/london/property/nido-west-hampstead/image-o6i642.jpeg");
+            solrHelper.add(apartmentJson, "apartment");
+            apartmentJson.setId(2);
+            apartmentJson.setName("Chapter Spitalfields2");
+            solrHelper.add(apartmentJson, "apartment");
+            apartmentJson.setId(3);
+            apartmentJson.setName("Chapter Spitalfields3");
+            solrHelper.add(apartmentJson, "apartment");
+            apartmentJson.setId(4);
+            apartmentJson.setName("Chapter Spitalfields4");
+            solrHelper.add(apartmentJson, "apartment");
+            apartmentJson.setId(5);
+            apartmentJson.setName("Chapter Spitalfields5");
+            solrHelper.add(apartmentJson, "apartment");
+
+
+            CollegeJson collegeJson = new CollegeJson();
+            collegeJson.setId(1);
+            collegeJson.setCoordinate("1.3434,123.24");
+            collegeJson.setNation(1);
+            collegeJson.setCityId(1);
+            collegeJson.setName("BPP大学Croydon校区");
+            solrHelper.add(collegeJson, "college");
+            collegeJson.setId(2);
+            collegeJson.setName("BPP大学商学院Kings Cross校区");
+            solrHelper.add(collegeJson, "college");
+            collegeJson.setId(3);
+            collegeJson.setName("东伦敦大学");
+            solrHelper.add(collegeJson, "college");
+            collegeJson.setId(4);
+            collegeJson.setName("伦敦国王学院St Thomas&#039;校区");
+            solrHelper.add(collegeJson, "college");
+            collegeJson.setId(5);
+            collegeJson.setName("伦敦密德萨斯大学");
+            solrHelper.add(collegeJson, "college");
+
+            City city = new City();
+            city.setNationId(1);
+            city.setId(1);
+            city.setName("伦敦");
+            solrHelper.add(city, "city");
+            city.setId(2);
+            city.setName("利物浦");
+            solrHelper.add(city, "city");
+            city.setId(3);
+            city.setName("谢菲尔德");
+            solrHelper.add(city, "city");
+        }catch (Exception ex){
+            return 0;
+        }
+        return 1;
+    }
 }

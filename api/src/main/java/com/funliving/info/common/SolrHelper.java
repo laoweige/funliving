@@ -2,12 +2,15 @@ package com.funliving.info.common;
 
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrRequest;
+import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrDocumentList;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +50,17 @@ public class SolrHelper {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void clear(String index){
+        HttpSolrClient client = new HttpSolrClient(String.format("http://%s%s",writePath,index));
+        try {
+            UpdateResponse response = client.deleteByQuery("*:*");
+        } catch (SolrServerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

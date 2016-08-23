@@ -26,6 +26,7 @@ public class ApartmentJson {
         this.rank = entity.getRank();
     }
 
+    @Field("Rank")
     private int rank;
 
     public int getRank() {
