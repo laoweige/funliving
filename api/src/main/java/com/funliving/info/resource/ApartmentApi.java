@@ -36,7 +36,7 @@ public class ApartmentApi {
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
     @Path("{id}")
-    public ApartmentJson getEntity(@PathParam("id") int id) {
+    public ApartmentJson getEntity(@PathParam("id") int id,@QueryParam("college") int college) {
         Apartment apartment =  apartmentRepository.getEntity(id);
         ApartmentJson result = new ApartmentJson(apartment);
         List<Room> rooms = apartmentRepository.getRooms(id);
@@ -54,6 +54,10 @@ public class ApartmentApi {
         List<Introduce> introduces = introduceRepository.getList(1,id);
         for(Introduce introduce:introduces){
             result.getIntroduces().add(new IntroduceJson(introduce));
+        }
+        if(college!=0){
+            Distance distance = apartmentRepository.toCollegeDistance(id,college);
+            result.setDistance(new DistanceJson(distance));
         }
         return result;
     }

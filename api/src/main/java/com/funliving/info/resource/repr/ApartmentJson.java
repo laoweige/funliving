@@ -1,6 +1,7 @@
 package com.funliving.info.resource.repr;
 
 import com.funliving.info.repository.entity.Apartment;
+import com.funliving.info.repository.entity.Distance;
 import org.apache.solr.client.solrj.beans.Field;
 
 import java.util.ArrayList;
@@ -24,6 +25,16 @@ public class ApartmentJson {
         this.nation=entity.getNation();
         this.description=entity.getDescription();
         this.rank = entity.getRank();
+    }
+
+    private DistanceJson distance;
+
+    public DistanceJson getDistance() {
+        return distance;
+    }
+
+    public void setDistance(DistanceJson distance) {
+        this.distance = distance;
     }
 
     @Field("Rank")
