@@ -39,6 +39,9 @@ public class SearchApi {
         SearchListJson result = new SearchListJson();
 
         List<String> queries = new ArrayList<>();
+        List<City> cities = cityRepository.getList(1);
+        result.setCities(cities);
+
         if(city!=0){
             queries.add(String.format("City:%s", city));
             List<College> collegeList = collegeRepository.getList(city);
@@ -47,6 +50,12 @@ public class SearchApi {
                 CollegeJson cj = new CollegeJson(c);
                 result.getColleges().add(cj);
             }
+            for(City c :cities){
+                if(c.getId()==city){
+                    result.setCity(c);
+                    break;
+                }
+            }
         }
         if(rent!=null && !rent.equals("") && rent.contains(",") && !rent.endsWith(",")){
             String[] rents = rent.split(",");
@@ -54,11 +63,12 @@ public class SearchApi {
         }
         if(college!=0){
             College currentCollege = collegeRepository.getEntity(college);
-            result.setAddress(currentCollege.getName());
-            //设置距离排序
-        }else{
-            City currentCity = cityRepository.getEntity(city);
-            result.setAddress(currentCity.getName());
+            for(CollegeJson cj : result.getColleges()){
+                if(cj.getCityId()==college){
+                    result.setCollege(cj);
+                    break;
+                }
+            }
         }
 
         String queryString = "";
@@ -83,7 +93,6 @@ public class SearchApi {
                 result.getApartments().add(saj);
             }
             result.setTotal(apartments.getNumFound());
-            result.setCity(city);
             result.setPage(page);
             result.setPageSize(pageSize);
             if(result.getTotal()%pageSize == 0){
@@ -91,8 +100,6 @@ public class SearchApi {
             }else{
                 result.setEndPage((int)(result.getTotal()/pageSize) + 1);
             }
-
-//            result.setAddress("city or college");
             return result;
         }else {
             throw new WebApplicationException("missing query parameters");

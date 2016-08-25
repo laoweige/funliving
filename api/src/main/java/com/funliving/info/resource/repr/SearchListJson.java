@@ -1,5 +1,8 @@
 package com.funliving.info.resource.repr;
 
+import com.funliving.info.repository.entity.City;
+import com.funliving.info.repository.entity.College;
+
 import java.util.List;
 
 /**
@@ -8,12 +11,37 @@ import java.util.List;
 public class SearchListJson {
     private List<SubApartmentJson> apartments;
     private List<CollegeJson> colleges;
+    private List<City> cities;
     private long total;
-    private String Address;
-    private int city;
+    private CollegeJson college;
+    private City city;
     private int page;
     private int endPage;
     private int pageSize;
+
+    public List<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<City> cities) {
+        this.cities = cities;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public CollegeJson getCollege() {
+        return college;
+    }
+
+    public void setCollege(CollegeJson college) {
+        this.college = college;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     public int getPage() {
         return page;
@@ -63,30 +91,4 @@ public class SearchListJson {
         this.total = total;
     }
 
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
-    }
-
-    public int getCity() {
-        return city;
-    }
-
-    public void setCity(int city) {
-        this.city = city;
-    }
-
-    @Override
-    public String toString() {
-        return "SearchListJson{" +
-                "apartments=" + apartments +
-                ", colleges=" + colleges +
-                ", total=" + total +
-                ", Address='" + Address + '\'' +
-                ", city=" + city +
-                '}';
-    }
 }
