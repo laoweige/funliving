@@ -40,6 +40,8 @@ CREATE TABLE ApartmentCollege(
     walk INT,
     metro INT,
     drive INT,
-    distance INT,
     PRIMARY KEY(id)
-)
+);
+insert into ApartmentCollege(apartmentId,collegeId,walk,metro,drive) values(1,1,30,10,6);
+insert into ApartmentCollege(apartmentId,collegeId,walk,metro,drive) values(1,2,32,12,6);
+insert into ApartmentCollege(apartmentId,collegeId,walk,metro,drive) values(1,3,15,3,3);

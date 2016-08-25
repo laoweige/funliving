@@ -34,8 +34,8 @@ public interface ApartmentRepository {
     @Select("SELECT * FROM ApartmentFacility where apartmentId = #{apartmentId}")
     List<Facility> getFacilities(int apartmentId);
 
-    @Select("SELECT * FROM ApartmentDistance where apartmentId = #{apartmentId} and schoolId=#{schoolId}")
-    Distance getDistance(@Param("apartmentId") int apartmentId,@Param("schoolId") int schoolId);
+    @Select("SELECT * FROM ApartmentCollege where apartmentId = #{apartmentId} and collegeId=#{collegeId}")
+    Distance toCollegeDistance(@Param("apartmentId") int apartmentId,@Param("collegeId") int collegeId);
 
 
 
