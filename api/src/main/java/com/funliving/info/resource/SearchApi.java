@@ -33,6 +33,7 @@ public class SearchApi {
     public SearchListJson apartments(@DefaultValue("1") @QueryParam("page") int page,
                                        @DefaultValue("10") @QueryParam("pageSize") int pageSize,
                                        @DefaultValue("1") @QueryParam("city") int city,
+                                        @DefaultValue("1") @QueryParam("sort") int sort,
                                        @QueryParam("college") int college,
                                        @QueryParam("rent") String rent) {
 
@@ -43,6 +44,7 @@ public class SearchApi {
         result.setCities(cities);
 
         if(city!=0){
+            result.setQueryParameters("city="+city);
             queries.add(String.format("City:%s", city));
             List<College> collegeList = collegeRepository.getList(city);
             result.setColleges(new ArrayList<CollegeJson>());
@@ -57,18 +59,20 @@ public class SearchApi {
                 }
             }
         }
+        result.setQueryParameters(result.getQueryParameters()+"&sort="+sort);
         if(rent!=null && !rent.equals("") && rent.contains(",") && !rent.endsWith(",")){
             String[] rents = rent.split(",");
             queries.add(String.format("Rent:[%s TO %s]", rents[0],rents[1]));
+            result.setQueryParameters(result.getQueryParameters()+"&rent="+rents[0]+","+rents[1]);
         }
         if(college!=0){
-            College currentCollege = collegeRepository.getEntity(college);
             for(CollegeJson cj : result.getColleges()){
                 if(cj.getId()==college){
                     result.setCollege(cj);
                     break;
                 }
             }
+            result.setQueryParameters(result.getQueryParameters()+"&college="+college);
         }
 
         String queryString = "";

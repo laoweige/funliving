@@ -18,6 +18,15 @@ public class SearchListJson {
     private int page;
     private int endPage;
     private int pageSize;
+    private String queryParameters;
+
+    public String getQueryParameters() {
+        return queryParameters;
+    }
+
+    public void setQueryParameters(String queryParameters) {
+        this.queryParameters = queryParameters;
+    }
 
     public List<City> getCities() {
         return cities;
