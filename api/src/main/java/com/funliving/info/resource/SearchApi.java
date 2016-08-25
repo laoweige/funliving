@@ -64,7 +64,7 @@ public class SearchApi {
         if(college!=0){
             College currentCollege = collegeRepository.getEntity(college);
             for(CollegeJson cj : result.getColleges()){
-                if(cj.getCityId()==college){
+                if(cj.getId()==college){
                     result.setCollege(cj);
                     break;
                 }
