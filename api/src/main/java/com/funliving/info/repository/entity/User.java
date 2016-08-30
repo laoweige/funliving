@@ -1,41 +1,26 @@
 package com.funliving.info.repository.entity;
 
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
+@XmlRootElement
 public class User {
+    @FormParam("id")
     private int id;
     private String name;
+    @FormParam("mobile")
+    private String mobile;
+    @FormParam("password")
     private String password;
     private String email;
-    private int integral;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", integral=" + integral +
-                ", mobile='" + mobile + '\'' +
-                ", status=" + status +
-                ", createTime=" + createTime +
-                ", loginTime=" + loginTime +
-                '}';
-    }
-
-    public int getIntegral() {
-        return integral;
-    }
-
-    public void setIntegral(int integral) {
-        this.integral = integral;
-    }
+    private int status;
+    private Date createTime = new Date();
+    private Date loginTime = new Date();
 
     public User() {
     }
 
-    private String mobile;
 
     public User(String password, String mobile) {
         this.password = password;
@@ -110,7 +95,5 @@ public class User {
         this.loginTime = loginTime;
     }
 
-    private int status;
-    private Date createTime = new Date();
-    private Date loginTime = new Date();
+
 }

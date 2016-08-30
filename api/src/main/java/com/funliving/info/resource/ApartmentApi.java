@@ -7,7 +7,6 @@ import com.funliving.info.repository.PictureRepository;
 import com.funliving.info.repository.entity.*;
 import com.funliving.info.resource.repr.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;

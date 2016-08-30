@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -29,8 +31,8 @@ public class UsersApiTest extends ApiTest {
 
     @Before
     public void setUp() throws Exception {
-        userRepository = mock(UserRepository.class);
-        TestBeans.replaceBean("userRepository", userRepository);
+//        userRepository = mock(UserRepository.class);
+//        TestBeans.replaceBean("userRepository", userRepository);
         super.setUp();
     }
 
@@ -40,19 +42,28 @@ public class UsersApiTest extends ApiTest {
     }
 
     @Test
-    public void testAll() throws Exception {
-        when(userRepository.All()).thenReturn(new ArrayList() {{
-            add(new User("wzg", "123456"));
-            add(new User("zjs", "567890"));
-        }});
-        Response response = client().target(getBaseUri()).path("users")
+    public void testAuthCode() throws Exception {
+        Form form = new Form().param("mobile", "13910178445")
+                .param("code", "3456")
+                .param("sendTime","2016-08-30");
+        Response response = client().target(getBaseUri()).path("users/auth")
                 .request(MediaType.APPLICATION_JSON_TYPE)
-                .get();
-//        Object result = response.getEntity();
-        List<Object> result = response.readEntity(List.class);
-//        List<Object> result = response.(List.class);
-        System.out.println(result);
+                .post(Entity.form(form));
+
         assertThat(response.getStatus(), is(200));
         //assertThat(result.size(), is(2));
+    }
+
+
+    @Test
+    public void testLogin() throws Exception {
+        Form form = new Form().param("mobile", "13910178888")
+                .param("password", "123456");
+        Response response = client().target(getBaseUri()).path("users/login")
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .post(Entity.form(form));
+
+        assertThat(response.getStatus(), is(200));
+
     }
 }
