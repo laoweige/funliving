@@ -7,6 +7,7 @@ import com.funliving.info.repository.PictureRepository;
 import com.funliving.info.repository.RoomRepository;
 import com.funliving.info.repository.entity.*;
 import com.funliving.info.resource.repr.*;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -36,6 +37,14 @@ public class ApartmentApi {
 
     @Autowired
     private RoomRepository roomRepository;
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
+    @Path("city")
+    public List<Apartment> getList(@QueryParam("id") int id) {
+        List<Apartment> apartments = apartmentRepository.getList(id);
+        return apartments;
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")

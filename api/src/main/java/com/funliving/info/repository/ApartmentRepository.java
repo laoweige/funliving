@@ -10,6 +10,9 @@ public interface ApartmentRepository {
     @Select("SELECT * FROM apartment where id = #{id}")
     Apartment getEntity(int id);
 
+    @Select("SELECT * FROM apartment where city = #{city}")
+    List<Apartment> getList(@Param("city") int city);
+
     @Insert("insert into apartment(name,rank,images,address," +
             "supplier,postcode,rent,currency,city,coordinate,nation," +
             "description,createTime,lastTime) values(#{name},#{rank},#{images},#{address}," +
