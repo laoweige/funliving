@@ -66,14 +66,15 @@ public class ApartmentApiTest extends ApiTest {
                 .param("city", "1")
                 .param("nation", "1")
                 .param("coordinate", "39.86,116.49")
+                .param("facility","1,2,16,22")
                 .param("createTime", "2016-8-10 11:22:00");
 
-        Response response = client().target(getBaseUri()).path("apartment/create")
+        Response response = client().target(getBaseUri()).path("apartment")
                 .request(MediaType.APPLICATION_JSON_TYPE)
-                .post(Entity.form(form));
+                .put(Entity.form(form));
 
 //        Response response = Response.created(null).entity(apartment).build();
 //        System.out.println(result);
-        assertThat(response.getStatus(), is(201));
+        assertThat(response.getStatus(), is(200));
     }
 }

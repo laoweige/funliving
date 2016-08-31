@@ -4,12 +4,14 @@ import com.funliving.info.common.SolrHelper;
 import com.funliving.info.repository.ApartmentRepository;
 import com.funliving.info.repository.IntroduceRepository;
 import com.funliving.info.repository.PictureRepository;
+import com.funliving.info.repository.RoomRepository;
 import com.funliving.info.repository.entity.*;
 import com.funliving.info.resource.repr.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
@@ -31,6 +33,9 @@ public class ApartmentApi {
     private PictureRepository pictureRepository;
     @Autowired
     private IntroduceRepository introduceRepository;
+
+    @Autowired
+    private RoomRepository roomRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
@@ -61,32 +66,54 @@ public class ApartmentApi {
         return result;
     }
 
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("create")
-    public Response create(@BeanParam Apartment apartment)
+    @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
+    public Apartment create(@BeanParam Apartment apartment)
             throws URISyntaxException, IOException {
 
         int size = apartmentRepository.create(apartment);
-        if(size>0){
-            ApartmentJson apartmentJson = new ApartmentJson(apartment);
-            solrHelper.add(apartmentJson,"apartment");
+        System.out.println(apartment.getFacility());
+        if(size>0 && apartment.getFacility()!=null){
+
+            String[] facilies = apartment.getFacility().split(",");
+            if(facilies.length>0){
+                for(String f:facilies){
+                    apartmentRepository.createFacility(apartment.getId(),Integer.valueOf(f));
+                }
+            }
         }
         System.out.println(size);
-        return Response.created(new URI("")).build();
+        return apartment;
     }
 
-//    @POST
-//    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Path("create")
-//    public Response create(@FormParam("name") String name)
-//            throws URISyntaxException, IOException {
-//        System.out.println(name);
-////        int size = apartmentRepository.create(apartment);
-////        System.out.println(size);
-//
-//        return Response.created(new URI("")).build();
-//    }
+    @PUT
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
+    @Path("room")
+    public Room putRoom(@BeanParam Room room)
+            throws URISyntaxException, IOException {
+        int size = roomRepository.create(room);
+        System.out.println(size);
+        return room;
+    }
+
+    @DELETE
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
+    @Path("room")
+    public int deleteRoom(int id)
+            throws URISyntaxException, IOException {
+        roomRepository.delete(id);
+        return 1;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
+    @Path("room")
+    public List<Room> getRooms(@QueryParam("apartmentId") int apartmentId)
+            throws URISyntaxException, IOException {
+        List<Room> rooms = roomRepository.getList(apartmentId);
+        return rooms;
+    }
 }

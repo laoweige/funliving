@@ -1,13 +1,46 @@
 package com.funliving.info.repository.entity;
 
+import javax.ws.rs.FormParam;
 import java.util.Date;
 
 /**
  * Created by Administrator on 2016/8/3.
  */
 public class Room {
+    @FormParam("id")
     private int id;
+    @FormParam("name")
     private String name;
+    @FormParam("type")
+    private int type;
+    @FormParam("toilet")
+    private int toilet;
+    @FormParam("rent")
+    private int rent;
+    @FormParam("kitchen")
+    private int kitchen;
+    @FormParam("imprest")
+    private int imprest;
+    @FormParam("apartmentId")
+    private int apartmentId;
+    @FormParam("acreage1")
+    private String acreage1;
+    @FormParam("acreage2")
+    private String acreage2;
+    @FormParam("bed")
+    private int bed;
+    @FormParam("status")
+    private int status;
+    private Date createTime = new Date();
+
+
+    public int getBed() {
+        return bed;
+    }
+
+    public void setBed(int bed) {
+        this.bed = bed;
+    }
 
     public int getId() {
         return id;
@@ -49,6 +82,14 @@ public class Room {
         this.rent = rent;
     }
 
+    public int getKitchen() {
+        return kitchen;
+    }
+
+    public void setKitchen(int kitchen) {
+        this.kitchen = kitchen;
+    }
+
     public int getImprest() {
         return imprest;
     }
@@ -65,20 +106,28 @@ public class Room {
         this.apartmentId = apartmentId;
     }
 
-    public String getImages() {
-        return images;
+    public String getAcreage1() {
+        return acreage1;
     }
 
-    public void setImages(String images) {
-        this.images = images;
+    public void setAcreage1(String acreage1) {
+        this.acreage1 = acreage1;
     }
 
-    public String getDescription() {
-        return description;
+    public String getAcreage2() {
+        return acreage2;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setAcreage2(String acreage2) {
+        this.acreage2 = acreage2;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public Date getCreateTime() {
@@ -88,41 +137,4 @@ public class Room {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
-
-    public Date getLastTime() {
-        return lastTime;
-    }
-
-    public void setLastTime(Date lastTime) {
-        this.lastTime = lastTime;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public int getUsed() {
-        return used;
-    }
-
-    public void setUsed(int used) {
-        this.used = used;
-    }
-
-    private int type;
-    private int toilet;
-    private int rent;
-    private int imprest;
-    private int apartmentId;
-    private String images;
-    private String description;
-    private Date createTime=new Date();
-    private Date lastTime=new Date();
-    private int total;
-    private int used;
-
 }

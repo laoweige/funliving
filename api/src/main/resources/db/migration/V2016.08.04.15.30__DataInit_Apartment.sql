@@ -8,25 +8,8 @@ coordinate,nation,description,createTime,lastTime) values(
 'Chapter Spitalfields2',9,'pic','9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS',
 'UNITE STUDENTS','90002',136,1,1,'1.3434,123.24',1,'描述2','2016-8-4','2016-8-4');
 
-insert into ApartmentRoom(apartmentId,images,rent,imprest,total,used,
-name,type,toilet,description,createTime,lastTime)
-values(1,'pic',222,100,10,2,'Premium Range 1 One Bedroom Flat',1,1,'desc','2016-8-4','2016-8-4');
-
-insert into ApartmentRoom(apartmentId,images,rent,imprest,total,used,
-name,type,toilet,description,createTime,lastTime)
-values(1,'pic',316,100,10,2,'Premium Range 1 One Bedroom Flat',2,0,'desc','2016-8-4','2016-8-4');
-
-insert into ApartmentRoom(apartmentId,images,rent,imprest,total,used,
-name,type,toilet,description,createTime,lastTime)
-values(1,'pic',1222,100,10,2,'Premium Range 1 One Bedroom Flat',3,1,'desc','2016-8-4','2016-8-4');
-
-insert into ApartmentRoom(apartmentId,images,rent,imprest,total,used,
-name,type,toilet,description,createTime,lastTime)
-values(1,'pic',222,100,10,2,'Premium Range 1 One Bedroom Flat',1,1,'desc','2016-8-4','2016-8-4');
-
-insert into ApartmentRoom(apartmentId,images,rent,imprest,total,used,
-name,type,toilet,description,createTime,lastTime)
-values(1,'pic',222,100,10,2,'Premium Range 1 One Bedroom Flat',1,1,'desc','2016-8-4','2016-8-4');
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(1,222,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
 
 insert into apartmentFacility(apartmentId,facility) values(1,1);
 insert into apartmentFacility(apartmentId,facility) values(1,2);

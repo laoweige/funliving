@@ -7,35 +7,45 @@ public class RoomJson {
 
     public RoomJson(Room entity){
 
-
         this.id=entity.getId();
-        this.images=entity.getImages();
         this.rent=entity.getRent();
         this.imprest=entity.getImprest();
-        this.total=entity.getTotal();
-        this.used=entity.getUsed();
         this.name=entity.getName();
         this.type=entity.getType();
         this.toilet=entity.getToilet();
-        this.description=entity.getDescription();
+        this.kitchen = entity.getKitchen();
+        this.acreage1 = entity.getAcreage1();
+        this.status = entity.getStatus();
+        this.bed = entity.getBed();
+        this.acreage1 = entity.getAcreage1();
+        this.acreage2 = entity.getAcreage2();
 
-        if(total>used)
-            repertory=1;
     }
 
-    public int repertory;
-
-    public int getRepertory() {
-        return repertory;
+    public String getAcreage1() {
+        return acreage1;
     }
 
-    public void setRepertory(int repertory) {
-        this.repertory = repertory;
+    public void setAcreage1(String acreage1) {
+        this.acreage1 = acreage1;
     }
 
-    /**
-     *
-     */
+    public String getAcreage2() {
+        return acreage2;
+    }
+
+    public void setAcreage2(String acreage2) {
+        this.acreage2 = acreage2;
+    }
+
+    public int getBed() {
+        return bed;
+    }
+
+    public void setBed(int bed) {
+        this.bed = bed;
+    }
+
     private int id;
     public int getId() {
         return id;
@@ -44,9 +54,6 @@ public class RoomJson {
         this.id = id;
     }
 
-    /**
-     *
-     */
     private int apartmentId;
     public int getApartmentId() {
         return apartmentId;
@@ -55,20 +62,6 @@ public class RoomJson {
         this.apartmentId = apartmentId;
     }
 
-    /**
-     *
-     */
-    private String images;
-    public String getImages() {
-        return images;
-    }
-    public void setImages(String images) {
-        this.images = images;
-    }
-
-    /**
-     *
-     */
     private int rent;
     public int getRent() {
         return rent;
@@ -77,9 +70,6 @@ public class RoomJson {
         this.rent = rent;
     }
 
-    /**
-     *
-     */
     private int imprest;
     public int getImprest() {
         return imprest;
@@ -88,31 +78,8 @@ public class RoomJson {
         this.imprest = imprest;
     }
 
-    /**
-     *
-     */
-    private int total;
-//    public int getTotal() {
-//        return total;
-//    }
-//    public void setTotal(int total) {
-//        this.total = total;
-//    }
+    private int status;
 
-    /**
-     *
-     */
-    private int used;
-//    public int getUsed() {
-//        return used;
-//    }
-//    public void setUsed(int used) {
-//        this.used = used;
-//    }
-
-    /**
-     *
-     */
     private String name;
     public String getName() {
         return name;
@@ -121,9 +88,6 @@ public class RoomJson {
         this.name = name;
     }
 
-    /**
-     *
-     */
     private int type;
     public int getType() {
         return type;
@@ -132,9 +96,6 @@ public class RoomJson {
         this.type = type;
     }
 
-    /**
-     *
-     */
     private int toilet;
     public int getToilet() {
         return toilet;
@@ -143,16 +104,26 @@ public class RoomJson {
         this.toilet = toilet;
     }
 
-    /**
-     *
-     */
-    private String description;
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
+
+    private String acreage1;
+    private String acreage2;
+    private int bed;
+
+    private int kitchen;
+
+    public int getStatus() {
+        return status;
     }
 
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
+    public int getKitchen() {
+        return kitchen;
+    }
+
+    public void setKitchen(int kitchen) {
+        this.kitchen = kitchen;
+    }
 }

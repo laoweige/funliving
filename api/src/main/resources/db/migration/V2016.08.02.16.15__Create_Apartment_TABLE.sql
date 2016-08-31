@@ -20,17 +20,17 @@ CREATE TABLE Apartment (
 CREATE TABLE ApartmentRoom (
     id INT NOT NULL auto_increment,
     apartmentId INT NOT NULL,
-    images  VARCHAR(2000),
     rent int ,
+    bed int ,
     imprest int ,
-    total int,
-    used int,
+    status int,
     name VARCHAR(50) NOT NULL,
+    acreage1 VARCHAR(100) NOT NULL,
+    acreage2 VARCHAR(100) NOT NULL,
     type int,
     toilet int,
-    description VARCHAR(2000),
+    kitchen int,
     createTime DATETIME,
-    lastTime DATETIME,
     PRIMARY KEY(id)
 );
 

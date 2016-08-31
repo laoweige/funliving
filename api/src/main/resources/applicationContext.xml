@@ -46,6 +46,10 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
+    <bean id="roomRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.funliving.info.repository.RoomRepository"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
 
     <bean id="cityRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.funliving.info.repository.CityRepository"/>

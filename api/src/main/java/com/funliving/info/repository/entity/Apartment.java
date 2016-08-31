@@ -20,10 +20,13 @@ public class Apartment {
     private String images;
     @FormParam("address")
     private String address;
+    @FormParam("supplier")
     private String supplier;
+    @FormParam("postcode")
     private String postcode;
     @FormParam("rent")
     private int rent;
+    @FormParam("currency")
     private int currency;
     @FormParam("city")
     private int city;
@@ -31,7 +34,20 @@ public class Apartment {
     private String coordinate;
     @FormParam("nation")
     private int nation;
+    @FormParam("description")
     private String description;
+
+    @FormParam("facility")
+    private String facility;
+
+    public String getFacility() {
+        return facility;
+    }
+
+    public void setFacility(String facility) {
+        this.facility = facility;
+    }
+
     private Date createTime=new Date();
 
     public String getSupplier() {
