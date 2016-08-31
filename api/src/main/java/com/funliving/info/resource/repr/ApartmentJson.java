@@ -11,13 +11,33 @@ public class ApartmentJson {
 
     public ApartmentJson(){
     }
+    private String postcode;
+    private String supplier;
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(String supplier) {
+        this.supplier = supplier;
+    }
+
     public ApartmentJson(Apartment entity){
 
         this.id=entity.getId();
         this.name=entity.getName();
         this.images=entity.getImages();
         this.address=entity.getAddress();
-        this.serialNumber=entity.getSerialNumber();
+        this.postcode=entity.getPostcode();
+        this.supplier = entity.getSupplier();
         this.rent=entity.getRent();
         this.currency=entity.getCurrency();
         this.city=entity.getCity();
@@ -90,16 +110,6 @@ public class ApartmentJson {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    private String serialNumber;
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
     }
 
     @Field("Rent")

@@ -1,12 +1,12 @@
-insert into apartment(name,rank,images,address,serialNumber,rent,currency,city,
+insert into apartment(name,rank,images,address,supplier,postcode,rent,currency,city,
 coordinate,nation,description,createTime,lastTime) values(
 'Chapter Spitalfields',10,'pic','9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS',
-'xx885',136,1,1,'1.3434,123.24',1,'描述1','2016-8-3','2016-8-3');
+'UNITE STUDENTS','90001',136,1,1,'1.3434,123.24',1,'描述1','2016-8-3','2016-8-3');
 
-insert into apartment(name,rank,images,address,serialNumber,rent,currency,city,
+insert into apartment(name,rank,images,address,supplier,postcode,rent,currency,city,
 coordinate,nation,description,createTime,lastTime) values(
 'Chapter Spitalfields2',9,'pic','9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS',
-'xx885',136,1,1,'1.3434,123.24',1,'描述2','2016-8-4','2016-8-4');
+'UNITE STUDENTS','90002',136,1,1,'1.3434,123.24',1,'描述2','2016-8-4','2016-8-4');
 
 insert into ApartmentRoom(apartmentId,images,rent,imprest,total,used,
 name,type,toilet,description,createTime,lastTime)

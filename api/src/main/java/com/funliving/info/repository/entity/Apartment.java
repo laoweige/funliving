@@ -20,7 +20,8 @@ public class Apartment {
     private String images;
     @FormParam("address")
     private String address;
-    private String serialNumber;
+    private String supplier;
+    private String postcode;
     @FormParam("rent")
     private int rent;
     private int currency;
@@ -32,6 +33,22 @@ public class Apartment {
     private int nation;
     private String description;
     private Date createTime=new Date();
+
+    public String getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(String supplier) {
+        this.supplier = supplier;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
 
     public int getId() {
         return id;
@@ -71,14 +88,6 @@ public class Apartment {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
     }
 
     public int getRent() {
@@ -140,25 +149,6 @@ public class Apartment {
     }
 
     private Date lastTime=new Date();
-
-    @Override
-    public String toString() {
-        return "Apartment{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", images='" + images + '\'' +
-                ", address='" + address + '\'' +
-                ", serialNumber='" + serialNumber + '\'' +
-                ", rent=" + rent +
-                ", currency=" + currency +
-                ", city=" + city +
-                ", coordinate='" + coordinate + '\'' +
-                ", nation=" + nation +
-                ", description='" + description + '\'' +
-                ", createTime=" + createTime +
-                ", lastTime=" + lastTime +
-                '}';
-    }
 
     public Date getLastTime() {
         return lastTime;

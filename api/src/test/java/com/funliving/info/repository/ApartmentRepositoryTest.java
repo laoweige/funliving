@@ -34,6 +34,8 @@ public class ApartmentRepositoryTest {
         apartment.setAddress("9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS");
         apartment.setCurrency(1);
         apartment.setRent(8);
+        apartment.setPostcode("90003");
+        apartment.setSupplier("Unit2");
         apartment.setRent(370);
         apartment.setCreateTime(new Date());
         apartment.setLastTime(new Date());
@@ -55,6 +57,8 @@ public class ApartmentRepositoryTest {
         apartment.setNation(1);
         apartment.setAddress("9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS");
         apartment.setCurrency(1);
+        apartment.setPostcode("90003");
+        apartment.setSupplier("Unit2");
         apartment.setRent(264);
         apartment.setRank(8);
         apartment.setCreateTime(new Date());
