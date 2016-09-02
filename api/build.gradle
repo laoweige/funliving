@@ -39,9 +39,9 @@ ext {
         adDbPassword = '123456'
     } else if (profile.equals("test")) {
         adDbName = 'testdb'
-        adDbUrl = "jdbc:mysql://rm-uf68ozb35a5acs9wo.mysql.rds.aliyuncs.com:3306/"
-        adDbUsername = 'testdbadmin'
-        adDbPassword = 'wzg123$%^'
+        adDbUrl = "jdbc:mysql://rm-uf68279d6ydyl301s.mysql.rds.aliyuncs.com:3306/"
+        adDbUsername = 'api_fanqie'
+        adDbPassword = 'Fanqie@123$%6'
     } else if (profile.equals("local")) {
         adDbName = 'fanlivingdb'
         adDbUrl = "jdbc:mysql://127.0.0.1:3306/"
