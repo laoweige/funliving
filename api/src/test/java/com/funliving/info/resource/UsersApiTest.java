@@ -29,25 +29,14 @@ public class UsersApiTest extends ApiTest {
     @Autowired
     private UserRepository userRepository;
 
-    @Before
-    public void setUp() throws Exception {
-//        userRepository = mock(UserRepository.class);
-//        TestBeans.replaceBean("userRepository", userRepository);
-        super.setUp();
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
-    }
 
     @Test
-    public void testAuthCode() throws Exception {
+    public void test_UsersApi_AuthCode() throws Exception {
         Form form = new Form().param("mobile", "13910178445")
                 .param("code", "3456")
-                .param("sendTime","2016-08-30");
+                .param("sendTime", "2016-08-30 22:15:32");
         Response response = client().target(getBaseUri()).path("users/auth")
-                .request(MediaType.APPLICATION_JSON_TYPE)
+                .request(MediaType.TEXT_PLAIN)
                 .post(Entity.form(form));
 
         assertThat(response.getStatus(), is(200));
@@ -56,7 +45,7 @@ public class UsersApiTest extends ApiTest {
 
 
     @Test
-    public void testLogin() throws Exception {
+    public void test_UsersApi_Login() throws Exception {
         Form form = new Form().param("mobile", "13910178888")
                 .param("password", "123456");
         Response response = client().target(getBaseUri()).path("users/login")

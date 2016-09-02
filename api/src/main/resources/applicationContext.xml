@@ -71,6 +71,11 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
+    <bean id="scheduleRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.funliving.info.repository.ScheduleRepository"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
     <!--<bean id="productRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
         <!--<property name="mapperInterface" value="com.chaoshike.shop.repository.ProductRepository"/>-->
         <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->

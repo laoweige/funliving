@@ -11,16 +11,21 @@ import java.util.Date;
 public class AuthCode {
     public AuthCode(){}
 
+    @FormParam("id")
+    private int id;
 
-    public Date getSendTime() {
-        return sendTime;
-    }
+    @FormParam("mobile")
+    private String mobile;
 
-    public void setSendTime(Date sendTime) {
-        this.sendTime = sendTime;
-    }
+    @FormParam("code")
+    private int code;
 
+    @FormParam("sendTime")
+    private String sendTime;
 
+    private int total;
+
+    private Date createTime = new Date();
 
     public int getId() {
         return id;
@@ -62,19 +67,13 @@ public class AuthCode {
         this.createTime = createTime;
     }
 
-    @FormParam("id")
-    private int id;
+    public String getSendTime() {
+        return sendTime;
+    }
 
-    @FormParam("mobile")
-    private String mobile;
+    public void setSendTime(String sendTime) {
+        this.sendTime = sendTime;
+    }
 
-    @FormParam("code")
-    private int code;
 
-//    @FormParam("sendTime")
-    private Date sendTime = new Date();
-
-    private int total;
-
-    private Date createTime = new Date();
 }

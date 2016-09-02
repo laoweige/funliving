@@ -42,7 +42,7 @@ allprojects {
         mysqlVersion = '5.1.29'
         solrjVersion = '4.9.0'
         quartzVersion = '1.8.5'
-        profile = System.getProperty("env", "dev")
+        profile = System.getProperty("env", "local")
         println "[current profile]:" + profile
     }
 

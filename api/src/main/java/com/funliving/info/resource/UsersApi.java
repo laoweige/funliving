@@ -1,6 +1,7 @@
 package com.funliving.info.resource;
 
 
+import com.funliving.info.common.DateHelper;
 import com.funliving.info.repository.UserRepository;
 import com.funliving.info.repository.entity.AuthCode;
 import com.funliving.info.repository.entity.User;
@@ -46,7 +47,7 @@ public class UsersApi {
     @POST
     @Path("auth")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces("text/plain")
     public Response authCode(@BeanParam AuthCode code)
             throws URISyntaxException, IOException {
         AuthCode authCode = userRepository.queryCode(code.getMobile());
@@ -55,11 +56,13 @@ public class UsersApi {
             code.setTotal(1);
             result = sendAuthCode(code);
         }
+        Date sendTime = DateHelper.parse(code.getSendTime());
         Calendar ca=Calendar.getInstance();
-        ca.setTime(authCode.getSendTime());
+
+        ca.setTime(DateHelper.parse(authCode.getSendTime()));
         ca.add(Calendar.MINUTE, 15);
         Date checkDate = ca.getTime();
-        if(checkDate.before(code.getSendTime())){
+        if(checkDate.before(sendTime)){
             code.setTotal(1);
             result = sendAuthCode(code);
         }
