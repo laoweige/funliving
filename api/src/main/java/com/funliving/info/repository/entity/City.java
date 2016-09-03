@@ -21,6 +21,26 @@ public class City {
     public void setName(String name) {
         this.name = name;
     }
+    @Field("EnName")
+    private String english;
+    @Field("SpellLetter")
+    private String letter;
+
+    public String getEnglish() {
+        return english;
+    }
+
+    public void setEnglish(String english) {
+        this.english = english;
+    }
+
+    public String getLetter() {
+        return letter;
+    }
+
+    public void setLetter(String letter) {
+        this.letter = letter;
+    }
 
     @Field("Nation")
     private int nationId;

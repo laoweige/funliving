@@ -15,7 +15,7 @@ public class CollegeJson {
         this.nation=entity.getNationId();
         this.coordinate = entity.getCoordinate();
     }
-    @Field("Coordinate")
+
     private String coordinate;
     public String getCoordinate() {
         return coordinate;
@@ -24,7 +24,7 @@ public class CollegeJson {
         this.coordinate = coordinate;
     }
 
-    @Field("Nation")
+
     private int nation;
     public int getNation() {
         return nation;
@@ -33,7 +33,6 @@ public class CollegeJson {
         this.nation = nation;
     }
 
-    @Field("Id")
     private int id;
     public int getId() {
         return id;
@@ -42,7 +41,6 @@ public class CollegeJson {
         this.id = id;
     }
 
-    @Field("College")
     private String name;
     public String getName() {
         return name;
@@ -51,7 +49,6 @@ public class CollegeJson {
         this.name = name;
     }
 
-    @Field("City")
     private int cityId;
     public int getCityId() {
         return cityId;

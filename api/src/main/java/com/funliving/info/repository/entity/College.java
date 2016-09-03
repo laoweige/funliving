@@ -1,5 +1,7 @@
 package com.funliving.info.repository.entity;
 
+import org.apache.solr.client.solrj.beans.Field;
+
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PathParam;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -7,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class College {
 
+    @Field("Id")
     @FormParam("id")
     private int id;
     public int getId() {
@@ -17,6 +20,7 @@ public class College {
         this.id = id;
     }
 
+    @Field("College")
     @FormParam("name")
     private String name;
     public String getName() {
@@ -26,6 +30,7 @@ public class College {
         this.name = name;
     }
 
+    @Field("City")
     @FormParam("cityId")
     private int cityId;
     public int getCityId() {
@@ -35,6 +40,7 @@ public class College {
         this.cityId = cityId;
     }
 
+    @Field("Nation")
     @FormParam("nationId")
     private int nationId;
     public int getNationId() {
@@ -44,6 +50,7 @@ public class College {
         this.nationId = nationId;
     }
 
+    @Field("Coordinate")
     @FormParam("coordinate")
     private String coordinate;
     public String getCoordinate() {
@@ -51,6 +58,29 @@ public class College {
     }
     public void setCoordinate(String coordinate) {
         this.coordinate = coordinate;
+    }
+
+    @Field("EnName")
+    @FormParam("english")
+    private String english;
+    @Field("SpellLetter")
+    @FormParam("letter")
+    private String letter;
+
+    public String getEnglish() {
+        return english;
+    }
+
+    public void setEnglish(String english) {
+        this.english = english;
+    }
+
+    public String getLetter() {
+        return letter;
+    }
+
+    public void setLetter(String letter) {
+        this.letter = letter;
     }
 
 }

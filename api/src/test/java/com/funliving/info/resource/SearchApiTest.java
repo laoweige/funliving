@@ -68,19 +68,19 @@ public class SearchApiTest extends ApiTest {
 
     @Test
     public void testInit() throws Exception {
-//        Response response = client().target(getBaseUri()).path("search/init")
-//                .request(MediaType.TEXT_PLAIN)
-//                .get();
-//
-////        Response response = Response.created(null).entity(apartment).build();
-//        int result = response.getLength();
-//
-////        for(SolrDocument doc:list){
-////            System.out.println(doc.get("Id"));
-////            System.out.println(doc.get("Apartment"));
-////        }
-//        System.out.println(result);
-////        assertTrue(result.getColleges().size()>1);
-//        assertThat(response.getStatus(), is(200));
+        Response response = client().target(getBaseUri()).path("search/init")
+                .request(MediaType.TEXT_PLAIN)
+                .get();
+
+//        Response response = Response.created(null).entity(apartment).build();
+        int result = response.getLength();
+
+//        for(SolrDocument doc:list){
+//            System.out.println(doc.get("Id"));
+//            System.out.println(doc.get("Apartment"));
+//        }
+        System.out.println(result);
+//        assertTrue(result.getColleges().size()>1);
+        assertThat(response.getStatus(), is(200));
     }
 }

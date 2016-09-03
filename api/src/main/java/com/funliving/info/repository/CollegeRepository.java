@@ -16,12 +16,13 @@ public interface CollegeRepository {
     @Select("SELECT * FROM college where cityId = #{cityId}")
     List<College> getList(@Param("cityId") int cityId);
 
-    @Insert("insert into college(name,cityId,nationId,coordinate) " +
-            "values(#{name},#{cityId},#{nationId},#{coordinate})")
+    @Insert("insert into college(name,english,letter,cityId,nationId,coordinate) " +
+            "values(#{name},#{english},#{letter},#{cityId},#{nationId},#{coordinate})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int create(College college);
 
-    @Update("update college set name=#{name},cityId=#{cityId},nationId=#{nationId}," +
+    @Update("update college set name=#{name},english=#{english},letter=#{letter}," +
+            "cityId=#{cityId},nationId=#{nationId}," +
             "coordinate=#{coordinate} where id=#{id}")
     int update(College college);
 
