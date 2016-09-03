@@ -27,6 +27,7 @@ public class SearchApiTest extends ApiTest {
     @Autowired
     private CityRepository cityRepository;
 
+
     @Test
     public void testSearch_Hot() throws Exception {
 
@@ -51,6 +52,7 @@ public class SearchApiTest extends ApiTest {
     public void testSearch_Apartment() throws Exception {
 
         Response response = client().target(getBaseUri()).path("search")
+                .queryParam("sort","1.637,18.33")
                 .request(MediaType.APPLICATION_JSON_TYPE)
                 .get();
 

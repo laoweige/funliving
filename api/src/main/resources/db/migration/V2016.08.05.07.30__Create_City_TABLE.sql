@@ -28,9 +28,12 @@ CREATE TABLE College (
     coordinate VARCHAR(50) NOT NULL,
     PRIMARY KEY(id)
 );
-insert into College(name,english,letter,nationId,cityId,coordinate) values('BPP大学Croydon校区','BPP','BPP',1,1,'1.637,18.33');
-insert into College(name,english,letter,nationId,cityId,coordinate) values('BPP大学商学院Kings Cross校区','BPP','BPP',1,1,'1.637,18.33');
-insert into College(name,english,letter,nationId,cityId,coordinate) values('东伦敦大学','east london','donglundun',1,1,'1.637,18.33');
+insert into College(name,english,letter,nationId,cityId,coordinate)
+values('BPP大学Croydon校区','BPP','BPP',1,1,'1.537,18.33');
+insert into College(name,english,letter,nationId,cityId,coordinate)
+values('BPP大学商学院Kings Cross校区','BPP','BPP',1,1,'1.3134,123.24');
+insert into College(name,english,letter,nationId,cityId,coordinate)
+values('东伦敦大学','east london','donglundun',1,1,'1.3334,123.24');
 
 CREATE TABLE ApartmentCollege(
     id INT NOT NULL auto_increment,

@@ -2,47 +2,117 @@
     "size": 9,
     "facilities": {
         "1": {
-            "name": "wifi1",
+            "name": "WiFi",
             "logo": "1.png",
             "facility": 1
         },
         "2": {
-            "name": "wifi2",
+            "name": "包水费",
             "logo": "2.png",
             "facility": 2
         },
         "3": {
-            "name": "wifi3",
+            "name": "包电费",
             "logo": "3.png",
             "facility": 3
         },
         "4": {
-            "name": "wifi4",
+            "name": "包暖气费",
             "logo": "4.png",
             "facility": 4
         },
         "5": {
-            "name": "wifi5",
+            "name": "安全门禁",
             "logo": "5.png",
             "facility": 5
         },
         "6": {
-            "name": "wifi6",
+            "name": "安保人员",
             "logo": "6.png",
             "facility": 6
         },
         "7": {
-            "name": "wifi7",
+            "name": "24小时监控",
             "logo": "7.png",
             "facility": 7
         },
         "8": {
-            "name": "wifi8",
+            "name": "24小时热水",
             "logo": "8.png",
             "facility": 8
         },
         "9": {
-            "name": "wifi9",
+            "name": "全套家具",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "10": {
+            "name": "厨房用品",
+            "logo": "10.png",
+            "facility": 9
+        },
+        "11": {
+            "name": "有线电视",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "12": {
+            "name": "自习室",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "13": {
+            "name": "洗衣房",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "14": {
+            "name": "电梯 ",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "15": {
+            "name": "自行车库",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "16": {
+            "name": "停车位",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "17": {
+            "name": "健身房",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "18": {
+            "name": "娱乐区",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "19": {
+            "name": "电影放映室",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "20": {
+            "name": "保险",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "21": {
+            "name": "保洁服务",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "22": {
+            "name": "维修团队",
+            "logo": "9.png",
+            "facility": 9
+        },
+        "23": {
+            "name": "残疾人设施",
             "logo": "9.png",
             "facility": 9
         }

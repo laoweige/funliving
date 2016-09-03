@@ -1,8 +1,10 @@
 package com.funliving.info.resource;
 
 import com.funliving.info.common.SolrHelper;
+import com.funliving.info.repository.ApartmentRepository;
 import com.funliving.info.repository.CityRepository;
 import com.funliving.info.repository.CollegeRepository;
+import com.funliving.info.repository.entity.Apartment;
 import com.funliving.info.repository.entity.City;
 import com.funliving.info.repository.entity.College;
 import com.funliving.info.resource.repr.*;
@@ -27,6 +29,9 @@ public class SearchApi {
     private CollegeRepository collegeRepository;
     @Autowired
     private CityRepository cityRepository;
+
+    @Autowired
+    protected ApartmentRepository apartmentRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
@@ -122,6 +127,7 @@ public class SearchApi {
         if(keyword==null || keyword.trim().equals("")){
             throw new WebApplicationException("missing query parameters");
         }
+        keyword = keyword.trim().toLowerCase();
         System.out.println("SolrDocumentList search(@QueryParam(\"keyword\") String keyword)");
         System.out.println("keyword="+keyword);
         SolrDocumentList apartments = solrHelper.search(String.format("Apartment:*%s*", keyword), 0, 10, "*","apartment");
@@ -151,20 +157,11 @@ public class SearchApi {
             solrHelper.clear("apartment");
             solrHelper.clear("college");
             solrHelper.clear("city");
-            String[] coordinates = new String[]{"1.3034,123.24","1.3334,123.21","1.3834,123.24"};
-            for(int i=1;i<180;i++) {
-
-                ApartmentJson apartmentJson = new ApartmentJson();
-                apartmentJson.setId(i);
-                apartmentJson.setName("Chapter Spitalfields "+i);
-                apartmentJson.setRank(180%10);
-                apartmentJson.setRent(100+i*8);
-                apartmentJson.setNation(1);
-                apartmentJson.setCity(1);
-                apartmentJson.setCoordinate(coordinates[i%3]);
-                apartmentJson.setAddress("9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS");
-                apartmentJson.setImages("https://static.student-cdn.com/media/cache/light_gallery_main_desktop/mstr/country/united-kingdom/city/london/property/nido-west-hampstead/image-o6i642.jpeg");
-                solrHelper.add(apartmentJson, "apartment");
+            List<Apartment> apartments = apartmentRepository.getList(1);
+            apartments.addAll(apartmentRepository.getList(2));
+            apartments.addAll(apartmentRepository.getList(3));
+            for(Apartment apartment:apartments){
+                solrHelper.add(new ApartmentJson(apartment), "apartment");
             }
 
             List<City> cities = cityRepository.getAll();
