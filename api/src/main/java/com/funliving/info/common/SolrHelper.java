@@ -39,11 +39,38 @@ public class SolrHelper {
         SolrQuery solrQuery = new SolrQuery();
         solrQuery.setStart(start);
         solrQuery.setRows(rows);
+
         try {
             if (fl != null && !fl.equals("*")) {
                 solrQuery.setFields(fl);
             }
             solrQuery.setQuery(query);
+//            solrQuery.setSort()
+            QueryResponse response = client.query(solrQuery, SolrRequest.METHOD.POST);
+            return response.getResults();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public SolrDocumentList search(String query,int start,int rows,String fl,String index,String sort){
+
+        HttpSolrClient client = new HttpSolrClient(String.format("http://%s%s",searchPath,index));
+        SolrQuery solrQuery = new SolrQuery();
+        solrQuery.setStart(start);
+        solrQuery.setRows(rows);
+        try {
+            if (fl != null && !fl.equals("*")) {
+                solrQuery.setFields(fl);
+            }
+            solrQuery.setQuery(query);
+            if(sort.contains(",")) {
+                solrQuery.setSort("geodist(Coordinate,"+sort+")", SolrQuery.ORDER.asc);
+            }else{
+                solrQuery.setSort(sort, SolrQuery.ORDER.asc);
+            }
+//            solrQuery.setSort()
             QueryResponse response = client.query(solrQuery, SolrRequest.METHOD.POST);
             return response.getResults();
         } catch (Exception e) {

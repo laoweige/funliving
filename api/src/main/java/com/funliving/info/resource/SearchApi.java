@@ -33,7 +33,7 @@ public class SearchApi {
     public SearchListJson apartments(@DefaultValue("1") @QueryParam("page") int page,
                                        @DefaultValue("10") @QueryParam("pageSize") int pageSize,
                                        @DefaultValue("1") @QueryParam("city") int city,
-                                        @DefaultValue("1") @QueryParam("sort") int sort,
+                                        @QueryParam("sort") String sort,
                                        @QueryParam("college") int college,
                                        @QueryParam("rent") String rent) {
 
@@ -84,7 +84,12 @@ public class SearchApi {
 
         if(!queryString.equals("")) {
             int start = (page-1)*pageSize;
-            SolrDocumentList apartments = solrHelper.search(queryString,start , pageSize, "*", "apartment");
+            SolrDocumentList apartments;
+            if(sort==null || sort.trim().equals("")) {
+                apartments=solrHelper.search(queryString, start, pageSize, "*", "apartment");
+            }else{
+                apartments=solrHelper.search(queryString, start, pageSize, "*", "apartment",sort);
+            }
             result.setApartments(new ArrayList<SubApartmentJson>());
             for (SolrDocument doc : apartments) {
                 SubApartmentJson saj=new SubApartmentJson();
@@ -146,16 +151,17 @@ public class SearchApi {
             solrHelper.clear("apartment");
             solrHelper.clear("college");
             solrHelper.clear("city");
+            String[] coordinates = new String[]{"1.3034,123.24","1.3334,123.21","1.3834,123.24"};
             for(int i=1;i<180;i++) {
 
                 ApartmentJson apartmentJson = new ApartmentJson();
                 apartmentJson.setId(i);
                 apartmentJson.setName("Chapter Spitalfields "+i);
                 apartmentJson.setRank(180%10);
-                apartmentJson.setRent(321);
+                apartmentJson.setRent(100+i*8);
                 apartmentJson.setNation(1);
                 apartmentJson.setCity(1);
-                apartmentJson.setCoordinate("1.3434,123.24");
+                apartmentJson.setCoordinate(coordinates[i%3]);
                 apartmentJson.setAddress("9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS");
                 apartmentJson.setImages("https://static.student-cdn.com/media/cache/light_gallery_main_desktop/mstr/country/united-kingdom/city/london/property/nido-west-hampstead/image-o6i642.jpeg");
                 solrHelper.add(apartmentJson, "apartment");
