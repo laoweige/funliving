@@ -9,7 +9,7 @@ public interface CityRepository {
     @Select("SELECT * FROM city where id = #{id}")
     City getEntity(int id);
 
-    @Select("SELECT * FROM city")
+    @Select("SELECT * FROM city LIMIT 0,18")
     List<City> getAll();
 
     @Select("SELECT * FROM city where nationId= #{nationId}")
