@@ -70,7 +70,9 @@ public class ApartmentApi {
         }
         if(college!=0){
             Distance distance = apartmentRepository.toCollegeDistance(id,college);
-            result.setDistance(new DistanceJson(distance));
+            if(distance!=null) {
+                result.setDistance(new DistanceJson(distance));
+            }
         }
         return result;
     }
