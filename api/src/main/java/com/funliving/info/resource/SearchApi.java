@@ -120,8 +120,8 @@ public class SearchApi {
         System.out.println("SolrDocumentList search(@QueryParam(\"keyword\") String keyword)");
         System.out.println("keyword="+keyword);
         SolrDocumentList apartments = solrHelper.search(String.format("Apartment:*%s*", keyword), 0, 10, "*","apartment");
-        SolrDocumentList cities = solrHelper.search(String.format("CityName:*%s* AND EnName:*%s* AND SpellLetter:*%s*", keyword,keyword,keyword), 0, 10, "*","city");
-        SolrDocumentList colleges = solrHelper.search(String.format("College:*%s* AND EnName:*%s* AND SpellLetter:*%s*", keyword,keyword,keyword), 0, 10, "*","college");
+        SolrDocumentList cities = solrHelper.search(String.format("CityName:*%s* OR EnName:*%s* OR SpellLetter:*%s*", keyword,keyword,keyword), 0, 10, "*","city");
+        SolrDocumentList colleges = solrHelper.search(String.format("College:*%s* OR EnName:*%s* OR SpellLetter:*%s*", keyword,keyword,keyword), 0, 10, "*","college");
         SearchHotJson result = new SearchHotJson();
         for(SolrDocument doc:apartments){
             HotJson apartment = new HotJson(doc.get("Id"),doc.get("Apartment"),0);
