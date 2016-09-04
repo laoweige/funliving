@@ -3,7 +3,9 @@ coordinate,nation,description,createTime,lastTime) values(
 'Chapter Spitalfields 1',10,
 'https://static.student-cdn.com/media/cache/property_preview_desktop/mstr/country/united-kingdom/city/london/property/nido-west-hampstead/image-o6i642.jpeg',
 '9 Frying Pan Alley, Spitalfields街区, 伦敦, E1 7HS',
-'UNITE STUDENTS','90001',211,1,1,'1.3034,123.24',1,'描述1','2016-8-3','2016-8-3');
+'UNITE STUDENTS','90001',211,1,1,'1.3034,123.24',1,'<p class=\"para\">Woburn Place提供一系列高品质、高标准的学生套房，所有房间都配备完善的现代化电器。套房类型有单间套房、1室1厅、2室1厅和双人间四种。每间卧室都包含独立卫浴，单间套房的床更大一些以及带有一个独立的厨房。</p>
+<p class=\"para\">为丰富同学们的住宿生活，公寓安排了一些公共区域供大家休闲和娱乐，其中包括公共休息室、自习室、洗衣房和自行车库。公共休息室提供免费桌球和电视。公寓提供24小时安保服务，严格的门禁系统和监控设备为同学们的住宿安全提供保障。接待处的服务人员也随时为你提供各种服务，方便同学们的生活。</p>
+<p class=\"para\">我们提供的所有伦敦学生公寓租约中，都已经包含了无线网络、财产保险和公共设施账单（例如水电）的费用，因此无需担心产生任何额外支出。</p>','2016-8-3','2016-8-3');
 
 insert into apartment(name,rank,images,address,supplier,postcode,rent,currency,city,
 coordinate,nation,description,createTime,lastTime) values(

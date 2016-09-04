@@ -27,10 +27,12 @@ CREATE TABLE Introduce (
     bussinessId INT,
     PRIMARY KEY(id)
 );
+
+
 insert into Introduce(title,digest,content,businessType,bussinessId)
-values('公寓概况','','<p class=\"para\">Woburn Place提供一系列高品质、高标准的学生套房，所有房间都配备完善的现代化电器。套房类型有单间套房、1室1厅、2室1厅和双人间四种。每间卧室都包含独立卫浴，单间套房的床更大一些以及带有一个独立的厨房。</p>
+values('标题范例','','<p class=\"para\">Woburn Place提供一系列高品质、高标准的学生套房，所有房间都配备完善的现代化电器。套房类型有单间套房、1室1厅、2室1厅和双人间四种。每间卧室都包含独立卫浴，单间套房的床更大一些以及带有一个独立的厨房。</p>
 <p class=\"para\">为丰富同学们的住宿生活，公寓安排了一些公共区域供大家休闲和娱乐，其中包括公共休息室、自习室、洗衣房和自行车库。公共休息室提供免费桌球和电视。公寓提供24小时安保服务，严格的门禁系统和监控设备为同学们的住宿安全提供保障。接待处的服务人员也随时为你提供各种服务，方便同学们的生活。</p>
-<p class=\"para\">我们提供的所有伦敦学生公寓租约中，都已经包含了无线网络、财产保险和公共设施账单（例如水电）的费用，因此无需担心产生任何额外支出。</p>',1,1);
+<p class=\"para\">我们提供的所有伦敦学生公寓租约中，都已经包含了无线网络、财产保险和公共设施账单（例如水电）的费用，因此无需担心产生任何额外支出。</p>',1,2);
 insert into Introduce(title,digest,content,businessType,bussinessId)
 values('标题范例','','为丰富同学们的住宿生活，公寓安排了一些公共区域供大家休闲和娱乐，其中包括公共休息室、自习室、洗衣房和自行车库。公共休息室提供免费桌球和电视。公寓提供24小时安保服务，严格的门禁系统和监控设备为同学们的住宿安全提供保障。接待处的服务人员也随时为你提供各种服务，方便同学们的生活。',1,1);
 insert into Introduce(title,digest,content,businessType,bussinessId)

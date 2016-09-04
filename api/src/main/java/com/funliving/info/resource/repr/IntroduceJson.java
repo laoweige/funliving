@@ -3,6 +3,9 @@ package com.funliving.info.resource.repr;
 import com.funliving.info.repository.entity.Introduce;
 
 public class IntroduceJson {
+    public IntroduceJson(){
+
+    }
 
     public IntroduceJson(Introduce entity){
 

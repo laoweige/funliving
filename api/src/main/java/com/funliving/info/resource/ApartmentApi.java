@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -64,9 +65,16 @@ public class ApartmentApi {
         for(Picture picture:pictures){
             result.getPictures().add(new PictureJson(picture));
         }
-        List<Introduce> introduces = introduceRepository.getList(1,id);
-        for(Introduce introduce:introduces){
-            result.getIntroduces().add(new IntroduceJson(introduce));
+        List<IntroduceJson> introduces = new ArrayList<>();
+        IntroduceJson desc = new IntroduceJson();
+        desc.setId(0);
+        desc.setTitle("公寓概况");
+        desc.setContent(apartment.getDescription());
+        introduces.add(desc);
+        result.setIntroduces(introduces);
+        List<Introduce> introduces2 = introduceRepository.getList(1,id);
+        for(Introduce introduce:introduces2){
+            introduces.add(new IntroduceJson(introduce));
         }
         if(college!=0){
             Distance distance = apartmentRepository.toCollegeDistance(id,college);
