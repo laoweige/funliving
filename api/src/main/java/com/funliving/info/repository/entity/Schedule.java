@@ -1,10 +1,8 @@
 package com.funliving.info.repository.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.omg.CORBA.PRIVATE_MEMBER;
 
 import javax.ws.rs.FormParam;
-import javax.ws.rs.MatrixParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
@@ -27,6 +25,27 @@ public class Schedule {
     private String startTime;
     @FormParam("endTime")
     private String endTime;
+    @FormParam("apartmentId")
+    private int apartmentId;
+    @FormParam("roomId")
+    private int roomId;
+
+    public int getApartmentId() {
+        return apartmentId;
+    }
+
+    public void setApartmentId(int apartmentId) {
+        this.apartmentId = apartmentId;
+    }
+
+    public int getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
+    }
+
     private Date createTime = new Date();
 
 
