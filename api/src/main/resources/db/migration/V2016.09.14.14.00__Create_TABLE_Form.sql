@@ -32,8 +32,8 @@ CREATE TABLE Apply (
     creditName VARCHAR(50),
     creditCard VARCHAR(50),
     creditSecurity VARCHAR(20),
-    startDate Date,
-    expireDate  Date,
+    startDate VARCHAR(50),
+    expireDate VARCHAR(50),
 
     assureName VARCHAR(20),
     assureGender int,
