@@ -19,6 +19,7 @@ public class RoomJson {
         this.bed = entity.getBed();
         this.acreage1 = entity.getAcreage1();
         this.acreage2 = entity.getAcreage2();
+        this.apartmentId = entity.getApartmentId();
 
     }
 
