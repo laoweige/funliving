@@ -45,6 +45,29 @@ coordinate,nation,description,createTime,lastTime) values(
 
 insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
 values(1,222,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(1,322,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(1,522,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(1,422,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(2,199,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(2,299,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(2,399,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(3,199,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(4,199,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(5,199,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+insert into ApartmentRoom(apartmentId,rent,imprest,status,name,type,toilet,kitchen,acreage1,acreage2,createTime,bed)
+values(5,399,100,1,'Premium Range 1 One Bedroom Flat',1,1,1,'20','30','2016-8-4',1);
+
+
+
 
 insert into apartmentFacility(apartmentId,facility) values(1,1);
 insert into apartmentFacility(apartmentId,facility) values(1,2);

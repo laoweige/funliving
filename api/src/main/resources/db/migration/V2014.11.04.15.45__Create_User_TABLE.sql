@@ -34,6 +34,6 @@ CREATE TABLE AuthCode (
 
 
 INSERT INTO Users (name,password,email,mobile,status,createTime,loginTime)
-VALUES('老魏','123456','laoweige@163.com','13910178888',0,'2016-10-4','2016-10-4');
+VALUES('老魏','123456','laoweige@163.com','13910178445',0,'2016-10-4','2016-10-4');
 INSERT INTO Users (name,password,email,mobile,status,createTime,loginTime)
-VALUES('小树','123456','laoweige@163.com','13910178445',9,'2016-10-4','2016-10-4');
+VALUES('小树','123456','laoweige@163.com','18610751011',9,'2016-10-4','2016-10-4');
