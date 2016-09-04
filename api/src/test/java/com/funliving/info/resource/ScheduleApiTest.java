@@ -2,6 +2,7 @@ package com.funliving.info.resource;
 
 import com.funliving.info.repository.ScheduleRepository;
 import com.funliving.info.repository.entity.Apply;
+import com.funliving.info.repository.entity.Schedule;
 import com.funliving.info.resource.necessity.ApiTest;
 import com.funliving.info.resource.repr.ApartmentJson;
 import org.junit.Test;
@@ -24,6 +25,20 @@ public class ScheduleApiTest extends ApiTest {
 
     @Autowired
     private ScheduleRepository scheduleRepository;
+
+    @Test
+    public void test_ScheduleApi_GetScheduleListByPage() throws Exception {
+
+        Response response = client().target(getBaseUri()).path("schedule")
+                .queryParam("page",1)
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .get();
+        assertThat(response.getStatus(), is(200));
+        List<Schedule> applies=response.readEntity(List.class);
+        System.out.println(applies);
+        assertTrue(applies.size()>0);
+
+    }
 
     @Test
     public void test_ScheduleApi_Create() throws Exception {

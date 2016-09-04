@@ -8,6 +8,22 @@ import java.util.Date;
 
 @XmlRootElement
 public class Schedule {
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", status=" + status +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", apartmentId=" + apartmentId +
+                ", roomId=" + roomId +
+                ", createTime=" + createTime +
+                '}';
+    }
 
     @FormParam("id")
     private int id;

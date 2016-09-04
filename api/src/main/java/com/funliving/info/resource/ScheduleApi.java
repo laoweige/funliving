@@ -43,8 +43,8 @@ public class ScheduleApi {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces("text/plain")
     public int create(@BeanParam Schedule schedule) {
-        int id = scheduleRepository.create(schedule);
-        return id;
+        scheduleRepository.create(schedule);
+        return schedule.getId();
     }
 
 
@@ -54,8 +54,8 @@ public class ScheduleApi {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces("text/plain")
     public int createApply(@BeanParam Apply apply) {
-        int id = applyRepository.create(apply);
-        return id;
+        applyRepository.create(apply);
+        return apply.getId();
     }
 
     @POST
